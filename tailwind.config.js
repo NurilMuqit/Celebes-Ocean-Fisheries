@@ -13,6 +13,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
+                montserrat: ["Montserrat", ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 biru: "#0059A5",
