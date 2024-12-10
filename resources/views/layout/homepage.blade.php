@@ -12,23 +12,23 @@
 
 </head>
 
-<body class="font-montserrat">
+<body class="font-montserrat bg-biru    ">
 
     {{-- Navbar --}}
     <header class="bg-white">
-        <nav class=" bg-biru mx-auto flex rounded-b-lg justify-between p-6 lg:px-8">
+        <nav class=" bg-white mx-auto flex rounded-b-lg justify-between p-6 lg:px-8">
             <div class="flex items-center ml-5">
                 <a href="#">
                     {{-- ganti ke logo --}}
                     <h1 class=" font-bold">LOGO</h1>
                 </a>
             </div>
-            <div class="flex flex-row space-x-20 text-putihsusu font-semibold mr-10">
-                <a href="#home" class="hover:text-gray-300">Home</a>
-                <a href="#about" class="hover:text-gray-300">About Us</a>
-                <a href="#products" class="hover:text-gray-300">Products</a>
-                <a href="#contact" class="hover:text-gray-300">Contact Us</a>
-                <a href="#news" class="hover:text-gray-300">News & Articles</a>
+            <div class="flex flex-row space-x-20 text-biru font-semibold mr-10">
+                <a href="#home" class="hover:text-blue-400">Home</a>
+                <a href="#about" class="hover:text-blue-400">About Us</a>
+                <a href="#products" class="hover:text-blue-400">Products</a>
+                <a href="#contact" class="hover:text-blue-400">Contact Us</a>
+                <a href="#news" class="hover:text-gray-400">News & Articles</a>
             </div>
         </nav>
     </header>
@@ -47,11 +47,12 @@
     </section>
 
     {{-- Products --}}
-    <section id="products" class="bg-white py-20">
+    <section id="products" class="bg-biru py-20">
         <div class="container mx-auto text-center">
 
-            <h1 class="text-biru font-bold text-3xl mb-5 text-shadow-xl">Products</h1>
-            <p class="text-biru text-lg mb-5 max-w-7xl mx-auto">We provide fresh and frozen fishery products <br> All of
+            <h1 class="text-putihsusu font-bold text-3xl mb-5 text-shadow-xl">Products</h1>
+            <p class="text-putihsusu text-lg mb-5 max-w-7xl mx-auto">We provide fresh and frozen fishery products <br>
+                All of
                 our frozen and fresh fishery products are <b>caught fresh</b> from the ocean</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 m-5">
@@ -70,7 +71,7 @@
             </div>
             <div class="mt-10">
                 <a href=""
-                    class="bg-white text-biru shadow-md  font-bold border border-biru rounded-md py-2 px-11">
+                    class="bg-biru text-putihsusu shadow-md  font-bold border border-putihsusu rounded-md py-2 px-11">
                     View All Products
                 </a>
             </div>
@@ -78,15 +79,15 @@
     </section>
 
     {{-- About Us --}}
-    <section id="about" class="bg-white">
+    <section id="about" class="bg-biru">
         <div class="flex items-center space-x-2 mb-2">
             <hr class="flex-grow border-t border-blue-200">
-            <h2 class="text-lg md:text-xl font-bold text-blue-800 whitespace-nowrap">Why Celebes Ocean Fisheries?</h2>
+            <h2 class="text-lg md:text-xl font-bold text-putihsusu whitespace-nowrap">Why Celebes Ocean Fisheries?</h2>
             <hr class="flex-grow border-t border-blue-200">
         </div>
         <div class="flex flex-col lg:flex-row items-center justify-center my-8 px-4">
             <div class="lg:w-1/2 w-full mb-4 lg:mb-0 m-5 ml-24">
-                <p class="text-justify text-biru mt-4">
+                <p class="text-justify text-putihsusu mt-4">
                     Celebes Ocean Fisheries serves the best quality products. Lorem ipsum dolor sit amet, consectetur
                     adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                     veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
@@ -102,10 +103,10 @@
     </section>
 
     {{-- contact --}}
-    <section>
+    <section class="bg-biru">
         <div class="max-w-4xl m-20 my-10 px-4">
-            <h2 class="text-xl font-bold text-biru">Be Our Partner in Your Country</h2>
-            <p class="text-biru mb-6 italic">Please contact us to know more about our company, products, and sample
+            <h2 class="text-xl font-bold text-putihsusu">Be Our Partner in Your Country</h2>
+            <p class="text-putihsusu mb-6 italic">Please contact us to know more about our company, products, and sample
                 requests
             </p>
             <form class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -137,13 +138,13 @@
     </section>
 
     {{-- footer --}}
-    <footer class="bg-biru rounded-t-lg">
+    <footer class="bg-white rounded-t-lg">
         <div class="flex">
             <div class="m-6">
                 {{-- ganti ke logo --}}
                 <h1 class=" font-bold">LOGO</h1>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-40 ml-10 mt-4 text-putihsusu">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-40 ml-10 mt-4 text-biru">
 
                 <div>
                     <h1 class=" font-bold text-xl">Celebes Ocean Fisheries</h1>
@@ -222,9 +223,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
-        <p class="text-putihsusu text-center py-4 mt-7">&copy; 2024 Celebes Ocean Fisheries. All Rights Reserved.</p>
+        <p class="text-biru text-center py-4 mt-7">&copy; 2024 Celebes Ocean Fisheries. All Rights Reserved.</p>
     </footer>
 
 </body>
