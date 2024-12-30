@@ -1,8 +1,8 @@
 <header>
-    <nav class=" bg-white items-center mx-auto flex rounded-b-lg justify-between px-2 py-2 lg:px-8">
+    <nav class=" bg-white items-center mx-auto flex rounded-b-lg justify-between px-2 lg:px-8">
         <div class="flex items-center">
             <a href="#">
-                <img src="{{ asset('images/logopt.png') }}" alt="" class="h-16 w-auto">
+                <img src="{{ asset('images/logopt.png') }}" alt="" class="h-20 w-auto">
             </a>
         </div>
         <div class="flex flex-row space-x-16 text-biru font-bold mr-10">

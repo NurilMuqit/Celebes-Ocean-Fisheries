@@ -49,9 +49,9 @@
     {{-- About Us --}}
     <section id="about" class="bg-biru">
         <div class="flex items-center space-x-2 mb-2">
-            <hr class="flex-grow border-t border-blue-200">
+            <hr class="flex-grow border-t border-putihsusu">
             <h2 class="text-lg md:text-xl font-bold text-putihsusu whitespace-nowrap">Why Celebes Ocean Fisheries?</h2>
-            <hr class="flex-grow border-t border-blue-200">
+            <hr class="flex-grow border-t border-putihsusu">
         </div>
         <div class="flex flex-col lg:flex-row items-center justify-center my-8 px-4">
             <div class="lg:w-1/2 w-full mb-4 lg:mb-0 m-5 ml-24">
