@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>about</title>
+@section('title', 'About Us')
 
-    {{-- tailwind --}}
-    @vite(['resource/css/app.css', 'resource/js/app.js'])
-</head>
-
-<body>
-
-</body>
-
-</html>
+@section('content')
+<section>
+{{-- about us --}}
+<div>
+    <h1 class="font">About Us</h1>
+</div>
+</section>
+@endsection
