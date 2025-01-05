@@ -7,9 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
 
-    <link rel="icon" href="{{ asset('images/logopt2.png') }}" type="image/png">
-
-    {{-- AlpineJS --}}
+    <link rel="icon" href="{{ asset('images/logopt.png') }}" type="image/png">
 
     {{-- Tailwind --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])

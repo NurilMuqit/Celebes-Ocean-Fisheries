@@ -1,16 +1,14 @@
 <footer class="bg-white rounded-t-lg">
     <div class="flex">
-        <div class="m-6">
-            {{-- ganti ke logo --}}
-            <h1 class=" font-bold">LOGO</h1>
+        <div class="mx-2">
+            <a href="#">
+                <img src="{{ asset('images/logopt.png') }}" alt="" class="h-auto w-auto lg:w-32 lg:h-20">
+            </a>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-40 ml-10 mt-4 text-biru">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-40 mt-4 text-biru">
 
             <div>
                 <h1 class=" font-bold text-xl">Celebes Ocean Fisheries</h1>
-                <p class="italic">Supplying Across the Globe</p>
-                <p>SEAFOOD PROCESSOR EXPERT & EXPORTER</p>
-                <br>
                 <p class="text-sm">We also continue to update the information about the company through social
                     media. For the latest
                     information you can follow our social media.</p>
@@ -80,5 +78,5 @@
             </div>
         </div>
     </div>
-    <p class="text-biru text-center py-4 mt-7">&copy; 2024 Celebes Ocean Fisheries. All Rights Reserved.</p>
+    <p class="text-biru text-center py-4 mt-7">&copy; 2025 Celebes Ocean Fisheries. All Rights Reserved.</p>
 </footer>
