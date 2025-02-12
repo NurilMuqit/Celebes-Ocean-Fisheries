@@ -8,14 +8,15 @@
             <div
                 class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                 <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                    <div class="sm:flex sm:items-start ">
+                    <div class="sm:flex sm:items-start flex justify-center">
                         <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                            <h1 class="text-xl font-bold text-biru text-center text-shadow-md" id="modal-title">Thank
-                                You!</h1>
+                            <h1 class="textlg font-bold text-biru text-center text-shadow-sm" id="modal-title">Please
+                                submit your email to download this file</h1>
                             <div class="mt-2">
-                                <p class="text-biru italic px-10 text-center">Thank you for sending your
-                                    warm message
-                                    Can’t wait to work with you soon.</p>
+                                <form action="">
+                                    <input type="text" name="name" id="" placeholder="Name"
+                                        class="border border-biru w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </form>
                             </div>
                         </div>
                     </div>
