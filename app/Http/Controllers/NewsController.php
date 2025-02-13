@@ -14,6 +14,10 @@ class NewsController extends Controller
     {
         return view('layout.news');
     }
+    public function index2()
+    {
+        return view('layout.allnews');
+    }
 
     /**
      * Show the form for creating a new resource.

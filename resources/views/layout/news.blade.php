@@ -90,7 +90,7 @@
         <div class="max-w-7xl mx-auto mb-20 mt-10 text-putihsusu">
             <div class="flex justify-between items-center">
                 <h2 class="text-2xl font-bold">Articles</h2>
-                <a href="#" class="text-shadow-lg italic flex">See All <svg
+                <a href="{{ route('news.all') }}" class="text-shadow-lg italic flex">See All <svg
                         class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
