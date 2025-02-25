@@ -4,15 +4,18 @@
 
 @section('content')
     {{-- Hero --}}
-    <section id="home" class="bg-cover bg-center h-screen flex items-center"
-        style="background-image: url('{{ asset('images/dummy.png') }}');">
-        <div class="container mx-auto text-center">
-            <h1 class="font-bold">LOGO</h1>
-            <h1 class="text-white font-bold text-4xl text-shadow-xl mb-2">Celebes Ocean Fisheries</h1>
-            <p class="text-white text-xl max-w-6xl mx-auto italic mb-1">Suplying Across the Globe</p>
-            <p class="text-white text-xl max-w-6xl mx-auto font-bold">SEAFOOD PROCESSOR EXPERT & EXPORTER</p>
+    <section id="home" class="bg-cover bg-center h-screen flex items-center justify-center"
+    style="background-image: url('{{ asset('images/dummy.png') }}');">
+    <div class="container mx-auto flex flex-col items-center justify-center text-center">
+        <div class="bg-white w-60 h-60 rounded-full flex flex-col items-center justify-center shadow-lg mb-4">
+            <img src="{{ asset('images/logotext.png') }}" alt="Logo" class="w-50 h-50">
         </div>
-    </section>
+        <h1 class="text-white font-bold text-4xl text-shadow-xl mb-2">Celebes Ocean Fisheries</h1>
+        <p class="text-white text-xl max-w-6xl mx-auto italic mb-1">Supplying Across the Globe</p>
+        <p class="text-white text-xl max-w-6xl mx-auto font-bold">SEAFOOD PROCESSOR EXPERT & EXPORTER</p>
+    </div>
+</section>
+
 
     {{-- Products --}}
     <section id="products" class="bg-biru py-20">
