@@ -18,18 +18,23 @@
         </div>
         <h2 class="text-xl font-bold text-biru text-center">Login Page</h2>
         <p class="text-sm text-gray-500 text-center mb-6">Insert your email and password</p>
-        
+
         <form method="POST" action="{{ route('login.post') }}">
             @csrf
             <div class="mb-4">
                 <label class="block text-biru" for="email">Email</label>
-                <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <input type="email" id="email" name="email"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required>
             </div>
             <div class="mb-4">
                 <label class="block text-biru" for="password">Password</label>
-                <input type="password" id="password" name="password" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <input type="password" id="password" name="password"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required>
             </div>
-            <button type="submit" class="w-full bg-blue-700 text-putihsusu py-2 rounded-lg hover:bg-blue-700 transition">Login</button>
+            <button type="submit"
+                class="w-full bg-blue-700 text-putihsusu py-2 rounded-lg hover:bg-blue-700 transition">Login</button>
         </form>
     </div>
 </body>

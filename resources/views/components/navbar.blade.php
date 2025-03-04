@@ -12,7 +12,6 @@
             <a href="#contact" class="hover:text-blue-400">Contact Us</a>
             <a href="{{ route('news') }}" class="hover:text-blue-400">News & Articles</a>
             @auth
-                <!-- Dropdown Menu -->
                 <div x-data="{ open: false }" class="relative font-semibold">
                     <button @click="open = !open"
                         class="flex items-center space-x-2 px-3 py-1 rounded-lg hover:bg-gray-300">
