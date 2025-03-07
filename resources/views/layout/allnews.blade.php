@@ -5,8 +5,8 @@
 @section('content')
     {{-- search bar --}}
     <section class="p-7">
-        <div class="flex items-center justify-between text-white ml-6">
-            <div class="text-putihsusu flex">
+        <div class="flex items-center justify-between ml-6">
+            <div class="text-biru flex">
                 <button class="mr-3" onclick="window.location.href='/news'"> <svg
                         class="w-6 h-6 text-gray-800 dark:text-putihsusu hover:text-neutral-400" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -39,13 +39,13 @@
                 <a href="" class="flex p-4 hover:shadow-xl">
                     <div class="w-1/4 bg-gray-300 h-32 rounded-md"></div>
                     <div class="w-3/4 pl-4">
-                        <h2 class="font-bold text-lg text-putihsusu">Indonesia Punya Peluang Besar untuk Pasar Seafood Dunia
+                        <h2 class="font-bold text-lg text-biru">Indonesia Punya Peluang Besar untuk Pasar Seafood Dunia
                         </h2>
                         <div class="flex gap-10">
-                            <p class="text-white text-sm font-semibold">ADMIN</p>
-                            <p class="text-white text-sm italic">10 hour ago</p>
+                            <p class="text-biru text-sm font-semibold">ADMIN</p>
+                            <p class="text-biru text-sm italic">10 hour ago</p>
                         </div>
-                        <p class="text-white text-sm mt-2">Komoditas Seafood Dunia memiliki nilai pasar hingga U$ 419,09
+                        <p class="text-biru text-sm mt-2">Komoditas Seafood Dunia memiliki nilai pasar hingga U$ 419,09
                             miliar di tahun 2030. Sementara di tahun 2023, diketahui nilai pasar seafood dunia sebesar Rp
                             269,30 miliar dengan compounded annual growth rate (CAGR) naik sebesar 6,52% pada 2023-2030...
                         </p>
@@ -55,13 +55,13 @@
                 <a href="" class="flex p-4 hover:shadow-xl">
                     <div class="w-1/4 bg-gray-300 h-32 rounded-md"></div>
                     <div class="w-3/4 pl-4">
-                        <h2 class="font-bold text-lg text-putihsusu">Indonesia Punya Peluang Besar untuk Pasar Seafood Dunia
+                        <h2 class="font-bold text-lg text-biru">Indonesia Punya Peluang Besar untuk Pasar Seafood Dunia
                         </h2>
                         <div class="flex gap-10">
-                            <p class="text-white text-sm font-semibold">ADMIN</p>
-                            <p class="text-white text-sm italic">10 hour ago</p>
+                            <p class="text-biru text-sm font-semibold">ADMIN</p>
+                            <p class="text-biru text-sm italic">10 hour ago</p>
                         </div>
-                        <p class="text-white text-sm mt-2">Komoditas Seafood Dunia memiliki nilai pasar hingga U$ 419,09
+                        <p class="text-biru text-sm mt-2">Komoditas Seafood Dunia memiliki nilai pasar hingga U$ 419,09
                             miliar di tahun 2030. Sementara di tahun 2023, diketahui nilai pasar seafood dunia sebesar Rp
                             269,30 miliar dengan compounded annual growth rate (CAGR) naik sebesar 6,52% pada 2023-2030...
                         </p>
@@ -71,13 +71,13 @@
                 <a href="" class="flex p-4 hover:shadow-xl">
                     <div class="w-1/4 bg-gray-300 h-32 rounded-md"></div>
                     <div class="w-3/4 pl-4">
-                        <h2 class="font-bold text-lg text-putihsusu">Indonesia Punya Peluang Besar untuk Pasar Seafood Dunia
+                        <h2 class="font-bold text-lg text-biru">Indonesia Punya Peluang Besar untuk Pasar Seafood Dunia
                         </h2>
                         <div class="flex gap-10">
-                            <p class="text-white text-sm font-semibold">ADMIN</p>
-                            <p class="text-white text-sm italic">10 hour ago</p>
+                            <p class="text-biru text-sm font-semibold">ADMIN</p>
+                            <p class="text-biru text-sm italic">10 hour ago</p>
                         </div>
-                        <p class="text-white text-sm mt-2">Komoditas Seafood Dunia memiliki nilai pasar hingga U$ 419,09
+                        <p class="text-biru text-sm mt-2">Komoditas Seafood Dunia memiliki nilai pasar hingga U$ 419,09
                             miliar di tahun 2030. Sementara di tahun 2023, diketahui nilai pasar seafood dunia sebesar Rp
                             269,30 miliar dengan compounded annual growth rate (CAGR) naik sebesar 6,52% pada 2023-2030...
                         </p>

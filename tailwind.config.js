@@ -19,7 +19,7 @@ export default {
             },
             colors: {
                 biru: "#0059A5",
-                putihsusu: "#FCFCD4",
+                putihsusu: "#FEFEF6",
                 abuabu: "#E6F4F1",
                 abuabu2: "#D9D9D9",
             },

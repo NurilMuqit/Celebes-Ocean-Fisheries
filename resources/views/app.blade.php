@@ -13,7 +13,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-montserrat bg-biru">
+<body class="font-montserrat bg-putihsusu">
 
     {{-- header --}}
     <x-navbar />

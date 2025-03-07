@@ -3,7 +3,7 @@
 @section('title', __('Server Error'))
 
 @section('content')
-    <section class="text-putihsusu">
+    <section class="text-biru">
         <div class="container flex justify-center items-center">
             <img class="my-10" src="{{ asset('images/500.png') }}" alt="">
         </div>

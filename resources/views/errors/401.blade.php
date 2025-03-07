@@ -3,7 +3,7 @@
 @section('title', __('Unauthorized'))
 
 @section('content')
-    <section class="text-putihsusu">
+    <section class="text-biru">
         <div class="container flex justify-center items-center">
             <img class="my-10" src="{{ asset('images/401.png') }}" alt="">
         </div>

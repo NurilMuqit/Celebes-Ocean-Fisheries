@@ -6,7 +6,7 @@
     {{-- descripton & search bar --}}
     <section class="p-7">
         <div class="flex items-center justify-between text-white ml-6">
-            <div class="text-putihsusu">
+            <div class="text-biru">
                 <h2 class="font-bold text-xl">Products</h2>
                 <p class="italic text-sm">
                     We provide fresh and frozen fishery products. <br>
@@ -34,39 +34,39 @@
             <div class="grid grid-cols-3 gap-20">
                 <div class="relative bg-gray-300 rounded-lg p-4 h-60 w-text-center">
                     <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-white">Product No 1</p>
+                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 1</p>
                 </div>
                 <div class="relative bg-gray-300 rounded-lg p-4 text-center">
                     <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-white">Product No 2</p>
+                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 2</p>
                 </div>
                 <div class="relative bg-gray-300 rounded-lg p-4 text-center">
                     <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-white">Product No 3</p>
+                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 3</p>
                 </div>
                 <div class="relative bg-gray-300 rounded-lg p-4 h-60 w-text-center">
                     <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-white">Product No 4</p>
+                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 4</p>
                 </div>
                 <div class="relative bg-gray-300 rounded-lg p-4 text-center">
                     <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-white">Product No 5</p>
+                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 5</p>
                 </div>
                 <div class="relative bg-gray-300 rounded-lg p-4 text-center">
                     <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-white">Product No 6</p>
+                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 6</p>
                 </div>
                 <div class="relative bg-gray-300 rounded-lg p-4 h-60 w-text-center">
                     <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-white">Product No 7</p>
+                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 7</p>
                 </div>
                 <div class="relative bg-gray-300 rounded-lg p-4 text-center">
                     <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-white">Product No 8</p>
+                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 8</p>
                 </div>
                 <div class="relative bg-gray-300 rounded-lg p-4 text-center">
                     <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-white">Product No 9</p>
+                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 9</p>
                 </div>
             </div>
         </section>

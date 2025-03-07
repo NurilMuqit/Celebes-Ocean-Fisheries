@@ -6,12 +6,12 @@
     {{-- about us --}}
     <section>
         <div class="py-10 px-4">
-            <h1 class="font-bold text-putihsusu text-2xl mb-5 ml-4 text-center lg:text-left">About Us</h1>
+            <h1 class="font-bold text-biru text-2xl mb-5 ml-4 text-center lg:text-left">About Us</h1>
             <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center">
                 <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0">
                     <div class="bg-gray-200 w-full h-60 lg:w-4/5 lg:h-64 rounded-md shadow-xl"></div>
                 </div>
-                <div class="lg:w-1/2 w-full text-putihsusu lg:pl-10 mr-10 ">
+                <div class="lg:w-1/2 w-full text-biru lg:pl-10 mr-10 ">
                     <h2 class="text-xl font-bold mb-4">Who Are We?</h2>
                     <p class="mb-4">A Global Seafood Processor Expert & Exporter based in Indonesia</p>
                     <p class="mb-4">PT. Celebes Ocean Fisheries company are based in Ambon, Maluku and focused on providing
@@ -20,8 +20,8 @@
                         Fish, Tilapia, Yellowfin Baby Tuna, Skipjack, etc. to America, Mexico, Korea, Thailand, and
                         Singapore since 2019.</p>
                     <button type="submit"
-                        class="flex bg-putihsusu text-biru font-bold p-1 rounded-md mt-1 px-6 hover:bg-neutral-400">
-                        <svg class="w-6 h-6 text-gray-800 dark:text-biru" aria-hidden="true"
+                        class="flex bg-biru text-putihsusu font-bold p-1 rounded-md mt-1 px-6 hover:bg-neutral-400">
+                        <svg class="w-6 h-6 text-putihsusu" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -38,7 +38,7 @@
     <section class="flex items-center justify-center">
         <div class="py-10 px-4">
             <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center">
-                <div class="lg:w-1/2 w-full text-putihsusu lg:pl-10 mr-10 justify-center">
+                <div class="lg:w-1/2 w-full text-biru lg:pl-10 mr-10 justify-center">
                     <h2 class="text-xl font-bold my-5">Our Vision and Mission</h2>
                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -56,29 +56,29 @@
     {{-- Our Key Features --}}
     <section class="flex items-center justify-center">
         <div class="py-10 px-4">
-            <h2 class="text-xl font-semibold my-5 text-center text-putihsusu">Our Key Features</h2>
+            <h2 class="text-xl font-semibold my-5 text-center text-biru">Our Key Features</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 m-5 text-semibold text-biru mx-auto justify-center">
-                <div class="bg-white rounded-md px-5 py-2 w-60">
+                <div class="bg-white border-biru border-2 rounded-md px-5 py-2 w-60">
                     <h2 class="font-bold mb-2 text-lg">Integrity</h2>
                     <p class="mb-3">Integrity means telling the truth, keeping our word, and treating others with fairness
                         and respect.
                         Integrity is one of our most cherished assets. It must not be compromised.</p>
                 </div>
-                <div class="bg-white rounded-md px-5 py-2 w-60">
+                <div class="bg-white border-biru border-2 rounded-md px-5 py-2 w-60">
                     <h2 class="font-bold mb-2 text-lg">Quality</h2>
                     <p class="mb-3">Quality is exhibited in many ways by selling and supporting products and services that
                         delight
                         customers, establishing a work environment, and delivering financial results that meet investor
                         expectations.</p>
                 </div>
-                <div class="bg-white rounded-md px-5 py-2 w-60">
+                <div class="bg-white border-biru border-2 rounded-md px-5 py-2 w-60">
                     <h2 class="font-bold mb-2 text-lg">Commitment</h2>
                     <p class="mb-3">Commitment is important where we will continue to provide the best to our customers
                         and investors all
                         the time. Our opportunity to serve should be viewed as a privilege that is not to be taken for
                         granted.</p>
                 </div>
-                <div class="bg-white rounded-md px-5 py-2 w-60">
+                <div class="bg-white border-biru border-2 rounded-md px-5 py-2 w-60">
                     <h2 class="font-bold mb-2 text-lg">Innovation</h2>
                     <p class="mb-3">Innovation means inventing, designing, and developing products and services that have
                         high appeal in
@@ -95,7 +95,7 @@
                 <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0">
                     <div class="bg-gray-200 w-full h-60 lg:w-4/5 lg:h-64 rounded-md shadow-xl"></div>
                 </div>
-                <div class="lg:w-1/2 w-full text-putihsusu lg:pl-10 mr-10 justify-center">
+                <div class="lg:w-1/2 w-full text-biru lg:pl-10 mr-10 justify-center">
                     <h2 class="text-xl font-bold mb-4">Our Service</h2>
                     <p class="mb-4">We commit to ensure the quality and security of our products. Our quality control
                         carefully observes seafood products alongside the execution of HACCP and GMP all through the
@@ -109,7 +109,7 @@
     </section>
 
     {{-- What Make Us Different? --}}
-    <section class="flex items-center justify-center text-putihsusu">
+    <section class="flex items-center justify-center text-biru">
         <div class="py-10 px-4">
             <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center">
                 <div class="lg:w-1/2 w-full lg:pl-10 mr-10 py-8">
@@ -141,7 +141,7 @@
     {{-- Certification --}}
     <section class="flex items-center justify-center">
         <div class="py-10 px-4">
-            <h2 class="text-xl font-semibold my-5 text-center text-putihsusu">Certification</h2>
+            <h2 class="text-xl font-bold my-5 text-center text-biru">Certification</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-8 m-5 text-semibold text-biru mx-auto justify-center">
                 <div class="px-5 py-2 w-60">
                     <img src="{{ asset('images/haccp.png') }}" alt="">
