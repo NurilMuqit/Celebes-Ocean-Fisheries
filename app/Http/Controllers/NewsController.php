@@ -14,6 +14,7 @@ class NewsController extends Controller
     {
         return view('layout.news');
     }
+
     public function index2()
     {
         return view('layout.allnews');
@@ -22,6 +23,17 @@ class NewsController extends Controller
     {
         return view('layout.newssection');
     }
+
+    public function index4()
+    {
+        return view('admin.addnews');
+    }
+
+    public function index5()
+    {
+        return view('admin.editnews');
+    }
+    
     /**
      * Show the form for creating a new resource.
      */

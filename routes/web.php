@@ -17,3 +17,9 @@ Route::get('/news/test', [NewsController::class, 'index3'])->name('news.show');
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/product/add', [ProductController::class, 'index2'])->name('product.add');
+Route::get('/product/edit',[ProductController::class,'index3'])->name('product.edit');
+
+Route::get('/news/add', [NewsController::class, 'index4'])->name('news.add');
+Route::get('/news/edit', [NewsController::class, 'index5'])->name('news.edit');

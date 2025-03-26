@@ -76,14 +76,16 @@
     @auth
         <section class="flex justify-center mb-10">
             <div class="w-3/4">
-                <button class="mb-4 px-3 py-2 bg-putihsusu rounded-lg hover:bg-neutral-400"><svg
-                        class="w-6 h-6 text-biru dark:text-biru" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M5 12h14m-7 7V5" />
-                    </svg>
-                </button>
-
+                <a href="{{ route('product.add') }}" class="inline-block">
+                    <div class="mb-4 px-3 py-2 bg-biru rounded-lg hover:bg-blue-500 w-fit">
+                        <svg class="w-6 h-6 text-putihsusu" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 12h14m-7 7V5" />
+                        </svg>
+                    </div>
+                </a>
+                
                 <div class="bg-white rounded-lg shadow-xl overflow-hidden">
                     <table class="w-full border-collapse">
                         <thead class="bg-biru text-white">
@@ -101,7 +103,7 @@
                                 <td class="py-3 px-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
                                     dignissim velit nisi, a finibus leo ornare quis.</td>
                                 <td class="py-3 px-4 flex space-x-2">
-                                    <button class="text-blue-500">&#9998;</button>
+                                    <a class="text-blue-500" href="{{ route('product.edit') }}">&#9998;</a>
                                     <button class="text-red-500">&#128465;</button>
                                 </td>
                             </tr>
@@ -111,7 +113,7 @@
                                 <td class="py-3 px-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
                                     dignissim velit nisi, a finibus leo ornare quis.</td>
                                 <td class="py-3 px-4 flex space-x-2">
-                                    <button class="text-blue-500">&#9998;</button>
+                                    <a class="text-blue-500">&#9998;</a>
                                     <button class="text-red-500">&#128465;</button>
                                 </td>
                             </tr>
@@ -121,7 +123,17 @@
                                 <td class="py-3 px-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
                                     dignissim velit nisi, a finibus leo ornare quis.</td>
                                 <td class="py-3 px-4 flex space-x-2">
-                                    <button class="text-blue-500">&#9998;</button>
+                                    <a class="text-blue-500">&#9998;</a>
+                                    <button class="text-red-500">&#128465;</button>
+                                </td>
+                            </tr>
+                            <tr class="border-t">
+                                <td class="py-3 px-4">3</td>
+                                <td class="py-3 px-4">Nama Produk 4</td>
+                                <td class="py-3 px-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
+                                    dignissim velit nisi, a finibus leo ornare quis.</td>
+                                <td class="py-3 px-4 flex space-x-2">
+                                    <a class="text-blue-500">&#9998;</a>
                                     <button class="text-red-500">&#128465;</button>
                                 </td>
                             </tr>
@@ -131,5 +143,5 @@
             </div>
         </section>
     @endauth
-    
+
 @endsection

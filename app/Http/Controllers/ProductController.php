@@ -15,6 +15,16 @@ class ProductController extends Controller
         return view('layout.product');
     }
 
+    public function index2()
+    {
+        return view('admin.addproducts');
+    }
+
+    public function index3()
+    {
+        return view('admin.editproducts');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
