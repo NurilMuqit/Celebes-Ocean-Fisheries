@@ -11,6 +11,8 @@
 
     {{-- Tailwind --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- Font --}}
 </head>
 
 <body class="font-montserrat bg-putihsusu">

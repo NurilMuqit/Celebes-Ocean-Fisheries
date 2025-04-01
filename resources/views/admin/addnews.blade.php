@@ -28,9 +28,9 @@
                 <label class="block text-biru italic mt-4">Date</label>
                 <input type="date"
                     class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1">
-                <label class="block text-biru italic mt-4">Description</label>
-                <textarea placeholder="ex : Fish is a cat but live in sea"
-                    class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1 h-56"></textarea>
+                <label class="block text-biru italic mt-4" for="description">Description</label>
+                <textarea placeholder="ex : Fish is a cat but live in sea" id="description"
+                class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1 h-56"></textarea>
             </div>
             
             <div class="flex flex-col justify-between h-full">

@@ -23,3 +23,5 @@ Route::get('/product/edit',[ProductController::class,'index3'])->name('product.e
 
 Route::get('/news/add', [NewsController::class, 'index4'])->name('news.add');
 Route::get('/news/edit', [NewsController::class, 'index5'])->name('news.edit');
+
+Route::post('/product/add', [ProductController::class, 'add_product'])->name('product.add.post');

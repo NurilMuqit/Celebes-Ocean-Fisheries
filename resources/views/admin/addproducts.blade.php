@@ -19,20 +19,21 @@
 
     {{-- form section --}}
     <section>
-        <form class="mt-4 grid grid-col-2 gap-6 m-20">
+        <form class="mt-4 grid grid-col-2 gap-6 m-20" action="{{ route('product.add.post') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div>
                 <label class="block text-biru italic">Product Name</label>
-                <input type="text" placeholder="ex : Fish"
+                <input type="text" placeholder="ex : Fish" name="product_name"
                     class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1">
                 <label class="block text-biru italic mt-4">Description</label>
-                <textarea placeholder="ex : Fish is a cat but live in sea"
+                <textarea placeholder="ex : Fish is a cat but live in sea" name="product_description"
                     class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1 h-56"></textarea>
             </div>
             <div>
                 <label class="block text-biru italic">Product Image</label>
-                <div
+                <div onclick="document.getElementById('imageUpload').click()"
                     class="border-dashed border-2 border-blue-300 rounded-md flex flex-col items-center justify-center h-80 cursor-pointer mt-1 hover:bg-blue-50">
-                    <span class="text-blue-700"><svg class="w-6 h-6 text-biru" aria-hidden="true"
+                    <span id="icon" class="text-blue-700"><svg class="w-6 h-6 text-biru" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
                             viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M13 10a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H14a1 1 0 0 1-1-1Z"
@@ -42,7 +43,9 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </span>
-                    <p class="text-biru italic">Select image (JPG, PNG)</p>
+                    <p id="uploadText" class="text-biru italic">Select image (JPG, PNG) Max 2MB</p>
+                    <div id="previewContainer" class="absolute"></div>
+                    <input type="file" id="imageUpload" name="product_image" accept="image/*" class="hidden" onchange="previewFile()">
                 </div>
             </div>
             <div class="col-span-2 flex justify-end">
@@ -50,5 +53,33 @@
             </div>
         </form>
     </section>
+    
+    <script>
+        function previewFile() {
+            const file = document.getElementById('imageUpload').files[0];
+            const previewContainer = document.getElementById('previewContainer');
+    
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    let imgPreview = document.getElementById('previewImage');
+    
+                    if (!imgPreview) {
+                        imgPreview = document.createElement('img');
+                        imgPreview.id = 'previewImage';
+                        imgPreview.classList.add('mt-2', 'max-h-72', 'rounded-md');
+                        previewContainer.appendChild(imgPreview);
+                    }
+    
+                    imgPreview.src = e.target.result;
 
+                    uploadText.style.display = 'none';
+                    icon.style.display = 'none';
+
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+    
 @endsection

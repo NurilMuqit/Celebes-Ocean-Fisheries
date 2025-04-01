@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -36,9 +37,21 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function add_product(Request $request)
     {
-        //
+        $request->validate([
+            'product_name' => 'required',
+            'product_description' => 'required',
+            'product_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        Products::create([
+            'product_name' =>$request->product_name,
+            'product_description' => $request->product_description,
+            'product_image' => $request->file('product_image')->store('images', 'public'),
+        ]);
+
+        return redirect()->back()->with('success', 'Product added successfully!');
     }
 
     /**
