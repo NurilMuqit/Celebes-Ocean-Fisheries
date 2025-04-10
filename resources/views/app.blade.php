@@ -11,6 +11,9 @@
 
     {{-- Tailwind --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+
 
     {{-- Font --}}
 </head>

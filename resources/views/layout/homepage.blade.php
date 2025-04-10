@@ -89,7 +89,7 @@
                 <div class="md:col-span-2 space-y-4">
                     <input type="text" placeholder="Subject"
                         class="w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <textarea placeholder="Your Opinion"
+                    <textarea placeholder="Your Message"
                         class="w-full p-3 rounded-md shadow-lg h-28 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                 </div>
 
