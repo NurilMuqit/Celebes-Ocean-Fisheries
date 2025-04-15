@@ -23,10 +23,10 @@
             @csrf
             <div>
                 <label class="block text-biru italic" for="title">Title</label>
-                <input type="text" placeholder="ex : Fish" name="title"
+                <input type="text" placeholder="ex : Fish" name="title" value="{{ old('title') }}"
                     class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1">
                 <label class="block text-biru italic mt-4" for="description">Description</label>
-                <input id="description" type="hidden" name="description">
+                <input id="description" type="hidden" name="description" value="{{ old('description') }}">
                 <trix-editor input="description"
                     class="trix-content mt-1 border border-biru rounded-md h-48 overflow-y-auto"></trix-editor>
             </div>
@@ -59,6 +59,10 @@
         </form>
     </section>
     
+    {{-- modal --}}
+    <x-modal/>
+
+    {{-- script --}}
     <script>
         function previewFile() {
             const file = document.getElementById('imageUpload').files[0];

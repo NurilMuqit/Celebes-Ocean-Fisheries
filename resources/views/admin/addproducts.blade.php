@@ -23,11 +23,11 @@
             @csrf
             <div>
                 <label class="block text-biru italic">Product Name</label>
-                <input type="text" placeholder="ex : Fish" name="product_name"
+                <input type="text" placeholder="ex : Fish" name="product_name" value="{{ old('product_name') }}"
                     class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1">
                 <label class="block text-biru italic mt-4">Description</label>
                 <textarea placeholder="ex : Fish is a cat but live in sea" name="product_description"
-                    class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1 h-56"></textarea>
+                    class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1 h-56">{{ old('product_description') }}</textarea>
             </div>
             <div>
                 <label class="block text-biru italic">Product Image</label>
@@ -54,32 +54,36 @@
         </form>
     </section>
     
+    {{-- Modal --}}
+    <x-modal/>
+
+    {{-- script --}}
     <script>
         function previewFile() {
-            const file = document.getElementById('imageUpload').files[0];
-            const previewContainer = document.getElementById('previewContainer');
-    
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    let imgPreview = document.getElementById('previewImage');
-    
-                    if (!imgPreview) {
-                        imgPreview = document.createElement('img');
-                        imgPreview.id = 'previewImage';
-                        imgPreview.classList.add('mt-2', 'max-h-72', 'rounded-md');
-                        previewContainer.appendChild(imgPreview);
-                    }
-    
-                    imgPreview.src = e.target.result;
+        const file = document.getElementById('imageUpload').files[0];
+        const previewContainer = document.getElementById('previewContainer');
 
-                    uploadText.style.display = 'none';
-                    icon.style.display = 'none';
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                let imgPreview = document.getElementById('previewImage');
 
-                };
-                reader.readAsDataURL(file);
-            }
+                if (!imgPreview) {
+                    imgPreview = document.createElement('img');
+                    imgPreview.id = 'previewImage';
+                    imgPreview.classList.add('mt-2', 'max-h-72', 'rounded-md');
+                    previewContainer.appendChild(imgPreview);
+                }
+
+                imgPreview.src = e.target.result;
+
+                uploadText.style.display = 'none';
+               icon.style.display = 'none';
+
+            };
+            reader.readAsDataURL(file);
         }
+    }
     </script>
     
 @endsection

@@ -47,20 +47,30 @@ class NewsController extends Controller
      * Store a newly created resource in storage.
      */
     public function add_news(Request $request)
-    {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
-        News::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'image' => $request->file('image')->store('images', 'public'),
-        ]);
-
-        return redirect()->back()->with('success', 'News added successfully!');
+    {   
+        try {
+            $request->validate([
+                'title' => 'required',
+                'description' => 'required',
+                'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            ]);
+    
+            News::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'image' => $request->file('image')->store('images', 'public'),
+            ]);
+    
+            return back()
+            ->with('modal_type', 'success')
+            ->with('message', 'News has been successfully added!');
+            
+        } catch (\Throwable $e) {
+            return back()
+            ->with('modal_type', 'error')
+            ->with('message', 'Failed to add news: '.$e->getMessage())
+            ->withInput();
+        }
     }
 
     /**

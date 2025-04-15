@@ -38,20 +38,31 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      */
     public function add_product(Request $request)
-    {
-        $request->validate([
-            'product_name' => 'required',
-            'product_description' => 'required',
-            'product_image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+    {   
+        try {
+            $request->validate([
+                'product_name' => 'required',
+                'product_description' => 'required',
+                'product_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            ]);
+    
+            Products::create([
+                'product_name' =>$request->product_name,
+                'product_description' => $request->product_description,
+                'product_image' => $request->file('product_image')->store('images', 'public'),
+            ]);
+    
+            return back()
+            ->with('modal_type', 'success')
+            ->with('message', 'Product has been successfully added!');
 
-        Products::create([
-            'product_name' =>$request->product_name,
-            'product_description' => $request->product_description,
-            'product_image' => $request->file('product_image')->store('images', 'public'),
-        ]);
-
-        return redirect()->back()->with('success', 'Product added successfully!');
+        } catch (\Exception $e) {
+            return back()
+            ->with('modal_type', 'error')
+            ->with('message', 'Failed to add product: '.$e->getMessage())
+            ->withInput();
+        }
+        
     }
 
     /**
