@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
 
-class navbar extends Component
+class Navbar extends Component
 {
     /**
      * Create a new component instance.

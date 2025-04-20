@@ -6,6 +6,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DownloaderController;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
@@ -19,10 +20,14 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/product/add', [ProductController::class, 'index2'])->name('product.add');
-Route::get('/product/edit',[ProductController::class,'index3'])->name('product.edit');
+Route::get('/product/edit/{id}',[ProductController::class,'edit'])->name('product.edit');
+Route::put('/product/edit/{id}',[ProductController::class,'update'])->name('product.edit.post');
+Route::delete('/product/delete/{id}',[ProductController::class,'destroy'])->name('product.delete');
 
 Route::get('/news/add', [NewsController::class, 'index4'])->name('news.add');
 Route::get('/news/edit', [NewsController::class, 'index5'])->name('news.edit');
 
 Route::post('/product/add', [ProductController::class, 'add_product'])->name('product.add.post');
 Route::post('/news/add', [NewsController::class, 'add_news'])->name('news.add.post');
+
+Route::get('/about/downloader',[DownloaderController::class, 'index'])->name('downloader'); 

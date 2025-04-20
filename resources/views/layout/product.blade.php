@@ -97,51 +97,29 @@
                             </tr>
                         </thead>
                         <tbody class="text-blue-700">
+                            @foreach ($products as $product )
                             <tr class="border-t">
-                                <td class="py-3 px-4">1</td>
-                                <td class="py-3 px-4">Nama Produk 1</td>
-                                <td class="py-3 px-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                                    dignissim velit nisi, a finibus leo ornare quis.</td>
-                                <td class="py-3 px-4 flex space-x-2">
-                                    <a class="text-blue-500" href="{{ route('product.edit') }}">&#9998;</a>
-                                    <button class="text-red-500">&#128465;</button>
+                                <td class="py-3 px-4 text-center">{{ $product-> id }}</td>
+                                <td class="py-3 px-4 text-center">{{ $product-> product_name }}</td>
+                                <td class="py-3 px-4 text-center">{{ $product-> product_description }}</td>
+                                <td class="py-3 px-4 flex space-x-2 justify-center">
+                                    <a class="text-blue-500" href="{{ route('product.edit', $product->id) }}">&#9998;</a>
+                                <form action="{{ route('product.delete', $product->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" onclick="return confirm('Yakin mau hapus?')">&#128465;</button>
+                                </form>
                                 </td>
                             </tr>
-                            <tr class="border-t">
-                                <td class="py-3 px-4">2</td>
-                                <td class="py-3 px-4">Nama Produk 2</td>
-                                <td class="py-3 px-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                                    dignissim velit nisi, a finibus leo ornare quis.</td>
-                                <td class="py-3 px-4 flex space-x-2">
-                                    <a class="text-blue-500">&#9998;</a>
-                                    <button class="text-red-500">&#128465;</button>
-                                </td>
-                            </tr>
-                            <tr class="border-t">
-                                <td class="py-3 px-4">3</td>
-                                <td class="py-3 px-4">Nama Produk 3</td>
-                                <td class="py-3 px-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                                    dignissim velit nisi, a finibus leo ornare quis.</td>
-                                <td class="py-3 px-4 flex space-x-2">
-                                    <a class="text-blue-500">&#9998;</a>
-                                    <button class="text-red-500">&#128465;</button>
-                                </td>
-                            </tr>
-                            <tr class="border-t">
-                                <td class="py-3 px-4">3</td>
-                                <td class="py-3 px-4">Nama Produk 4</td>
-                                <td class="py-3 px-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                                    dignissim velit nisi, a finibus leo ornare quis.</td>
-                                <td class="py-3 px-4 flex space-x-2">
-                                    <a class="text-blue-500">&#9998;</a>
-                                    <button class="text-red-500">&#128465;</button>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
+
+        {{-- modal --}}
+        <x-modal/>
     @endauth
 
 @endsection

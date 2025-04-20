@@ -63,7 +63,7 @@
                 </p>
             </div>
             <div class="lg:w-1/2 w-full flex justify-center">
-                <div class="bg-gray-200 w-full h-60 lg:w-96 lg:h-60 rounded-md shadow-xl"></div>
+                <img src="{{ asset('images/pabrik.png') }}" alt="pabrik.png" class="w-full h-60 lg:w-96 lg:h-60 rounded-md shadow-xl"></img>
             </div>
         </div>
     </section>

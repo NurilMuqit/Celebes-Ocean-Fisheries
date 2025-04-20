@@ -9,7 +9,7 @@
             <h1 class="font-bold text-biru text-2xl mb-5 ml-4 text-center lg:text-left">About Us</h1>
             <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center">
                 <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0">
-                    <div class="bg-gray-200 w-full h-60 lg:w-4/5 lg:h-64 rounded-md shadow-xl"></div>
+                    <img src="{{ asset('images/pabrik2.png') }}" alt="pabrik2.png" class="w-full h-60 lg:w-4/5 lg:h-64 rounded-md shadow-xl"></img>
                 </div>
                 <div class="lg:w-1/2 w-full text-biru lg:pl-10 mr-10 ">
                     <h2 class="text-xl font-bold mb-4">Who Are We?</h2>
@@ -19,35 +19,55 @@
                     <p>Our company routinely sends frozen seafood products such as Octopus, Cuttlefish, Loligo Squid, Parrot
                         Fish, Tilapia, Yellowfin Baby Tuna, Skipjack, etc. to America, Mexico, Korea, Thailand, and
                         Singapore since 2019.</p>
-                    <button type="submit"
-                        class="flex bg-biru text-putihsusu font-bold p-1 rounded-md mt-1 px-6 hover:bg-neutral-400">
-                        <svg class="w-6 h-6 text-putihsusu" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                            viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    <div class="grid grid-cols-2 gap-5 text-center">
+                        <div>
+                            <button type="submit"
+                            class="flex bg-biru text-putihsusu font-bold p-1 rounded-md mt-1 px-6 hover:bg-neutral-400">
+                            <svg class="w-6 h-6 text-putihsusu" aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 13V4M7 14H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2m-1-5-4 5-4-5m9 8h.01" />
-                        </svg>
-                        Company Profile
-                    </button>
+                                </svg>
+                                Company Profile
+                            </button>
+                        </div>
+                        @auth
+                        <div>
+                            <a class="italic underline underline-offset-2 font-bold hover:text-blue-400" href="{{ route('downloader') }}">View the downloader</a>
+                        </div>    
+                        @endauth
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
     </section>
 
     {{-- Vision & Mission --}}
-    <section class="flex items-center justify-center">
-        <div class="py-10 px-4">
-            <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center">
-                <div class="lg:w-1/2 w-full text-biru lg:pl-10 mr-10 justify-center">
+    <section class="flex justify-center">
+        <div class="py-10 px-4 max-w-screen-full w-full">
+            <div class="flex flex-col lg:flex-row items-stretch justify-between gap-10 ml-20">
+                <div class="lg:w-3/5 w-full text-biru ">
                     <h2 class="text-xl font-bold my-5">Our Vision and Mission</h2>
-                    <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                    <p class="mb-4">To Be A Global Leader in Providing High-Quality, Sustainably Sourced Seafood Products, While Empowering Fishing Communities and Business Partners</p>
+                    <ul class="list-disc list-inside mb-4">
+                        <li>
+                            To provide fresh, high-quality seafood products that meet international food safety standards
+                        </li>
+                        <li>
+                            To implement responsible and sustainable fishing practices to preserve marine resources
+                        </li>
+                        <li>
+                            To build strong partnerships with local fishermen and business partners to improve their livelihoods
+                        </li>
+                        <li>
+                            To raise public awareness about the importance of consuming sustainable seafood
+                        </li>
+                    </ul>
                 </div>
-                <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0">
-                    <div class="bg-gray-200 w-full h-60 lg:w-4/5 lg:h-64 rounded-md shadow-xl"></div>
+                <div class="lg:w-2/5 w-full flex justify-center ">
+                    <img src="{{ asset('images/pabrik3.png') }}" alt="pabrik3.png" class="w-full h-64 object-cover lg:w-4/5 rounded-md shadow-xl"></img>
                 </div>
             </div>
         </div>
@@ -93,7 +113,7 @@
         <div class="py-10 px-4">
             <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center">
                 <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0">
-                    <div class="bg-gray-200 w-full h-60 lg:w-4/5 lg:h-64 rounded-md shadow-xl"></div>
+                    <img src="{{ asset('images/pegawai.png') }}" alt="pegawai.png" class="w-full h-60 lg:w-3/5 lg:h-64 rounded-md shadow-xl"></img>
                 </div>
                 <div class="lg:w-1/2 w-full text-biru lg:pl-10 mr-10 justify-center">
                     <h2 class="text-xl font-bold mb-4">Our Service</h2>
