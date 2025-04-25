@@ -124,6 +124,6 @@ class ProductController extends Controller
 
         return back()
         ->with('modal_type', 'success')
-        ->with('message', 'Product deleted successfully.');
+        ->with('message', 'Product has been successfully deleted.');
     }
 }

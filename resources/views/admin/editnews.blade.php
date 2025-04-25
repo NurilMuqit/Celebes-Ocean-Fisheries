@@ -19,26 +19,27 @@
 
     {{-- form section --}}
     <section>
-        <form class="mt-4 grid grid-cols-2 gap-6 m-20">
-
+        <form action="{{ route('news.edit.post', $news->id ) }}" method="POST" enctype="multipart/form-data" class="mt-4 grid grid-cols-2 gap-6 m-20">
+            @csrf
+            @method('PUT')
             <div>
                 <label class="block text-biru italic">Title</label>
-                <input type="text" placeholder="ex : Fish"
-                    class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1">
-                <label class="block text-biru italic mt-4">Date</label>
-                <input type="date"
+                <input type="text" placeholder="ex : Fish" value="{{ $news -> title }}"
                     class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1">
                 <label class="block text-biru italic mt-4">Description</label>
-                <textarea placeholder="ex : Fish is a cat but live in sea"
-                    class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1 h-56"></textarea>
+                <input id="description" type="hidden" name="description" value="{{ $news -> description }}">
+                <trix-editor input="description"
+                    class="trix-content mt-1 border border-biru rounded-md h-48 overflow-y-auto"></trix-editor>
             </div>
 
             <div class="flex flex-col justify-between h-full">
                 <div>
-                    <label class="block text-biru italic">Product Image</label>
+                    <label class="block text-biru italic">News Image</label>
                     <div class="mt-2 flex gap-4 items-center">
-                        <img src="{{ asset('images/dummy.png') }}" alt="Uploaded Image"
-                        class="w-1/2 h-80 object-cover rounded-md border border-blue-400">
+                        @if ($news->image)
+                            <img src="{{ asset('storage/' . $news->image) }}" alt="Uploaded Image"
+                                class="w-1/2 h-80 object-cover rounded-md border border-blue-400">                        
+                        @endif
                         <div
                         class="border-dashed border-2 border-blue-300 rounded-md flex flex-col items-center justify-center w-1/2 h-80 cursor-pointer mt-1 hover:bg-blue-50">
                         <span class="text-blue-700"><svg class="w-6 h-6 text-biru" aria-hidden="true"

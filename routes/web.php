@@ -25,7 +25,9 @@ Route::put('/product/edit/{id}',[ProductController::class,'update'])->name('prod
 Route::delete('/product/delete/{id}',[ProductController::class,'destroy'])->name('product.delete');
 
 Route::get('/news/add', [NewsController::class, 'index4'])->name('news.add');
-Route::get('/news/edit', [NewsController::class, 'index5'])->name('news.edit');
+Route::get('/news/edit/{id}', [NewsController::class, 'edit'])->name('news.edit');
+Route::put('/news/edit/{id}', [NewsController::class, 'update'])->name('news.edit.post');
+Route::delete('/news/delete/{id}', [NewsController::class, 'destroy'])->name('news.delete');
 
 Route::post('/product/add', [ProductController::class, 'add_product'])->name('product.add.post');
 Route::post('/news/add', [NewsController::class, 'add_news'])->name('news.add.post');

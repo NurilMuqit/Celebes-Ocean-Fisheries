@@ -25,11 +25,11 @@
 
             <div class="flex flex-col">
                 <label class="text-biru italic">Product Name</label>
-                <input type="text" value="{{ $product-> product_name }}" name="product_name"
+                <input type="text" value="{{ $product-> product_name }}" name="product_name" placeholder="ex : Salmon"
                     class="w-full p-2 border border-biru rounded-md mt-1 focus:border-blue-600 focus:ring focus:ring-blue-500 outline-none">
 
                 <label class="text-biru italic mt-4">Description</label>
-                <textarea placeholder="Chicken is an evolution of dinosaur" name="product_description"
+                <textarea placeholder="ex : Chicken is an evolution of dinosaur" name="product_description" 
                     class="w-full p-2 border border-biru rounded-md mt-1 h-36 focus:border-blue-600 focus:ring focus:ring-blue-500 outline-none">{{ old('product_description', $product-> product_description) }}</textarea>
             </div>
 
@@ -93,5 +93,5 @@
                 reader.readAsDataURL(file);
             }
         }
-</script>  
+    </script>  
 @endsection

@@ -34,7 +34,7 @@
                         <div class="bg-gray-300 w-full h-60 lg:w-4/5 lg:h-64 rounded-md shadow-xl"></div>
                     </div>
                     <div class="lg:w-1/2 w-full text-biru lg:pl-10 mr-10 justify-center">
-                        <h2 class="text-2xl font-bold mb-4">Indonesia Punya Peluang Besar untuk Pasar Seafood Dunia</h2>
+                        <h2 class="text-2xl font-bold mb-4">{{ $news-> title }}</h2>
                         <div class="flex gap-5 text-biru">
                             <p class="mb-4 font-semibold">ADMIN</p>
                             <p class="mb-4 italic">10 hour ago </p>
@@ -162,51 +162,29 @@
                             </tr>
                         </thead>
                         <tbody class="text-blue-700">
+                            @foreach ($news as $n)
                             <tr class="border-t">
-                                <td class="py-3 px-4">1</td>
-                                <td class="py-3 px-4">Judul Berita 1</td>
-                                <td class="py-3 px-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                                    dignissim velit nisi, a finibus leo ornare quis.</td>
+                                <td class="py-3 px-4">{{ $n -> id }}</td>
+                                <td class="py-3 px-4">{{ $n -> title }}</td>
+                                <td class="py-3 px-4 text-sm">{{ $n -> description }}</td>
                                 <td class="py-3 px-4 flex space-x-2">
-                                    <a class="text-blue-500" href="{{ route('news.edit') }}">&#9998;</a>
-                                    <button class="text-red-500">&#128465;</button>
+                                    <a class="text-blue-500" href="{{ route('news.edit', $n -> id) }}">&#9998;</a>
+                                    <form action="{{ route('news.delete', $n->id) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Yakin mau hapus?')">&#128465;</button>
+                                    </form>
                                 </td>
                             </tr>
-                            <tr class="border-t">
-                                <td class="py-3 px-4">2</td>
-                                <td class="py-3 px-4">Judul Berita 2</td>
-                                <td class="py-3 px-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                                    dignissim velit nisi, a finibus leo ornare quis.</td>
-                                <td class="py-3 px-4 flex space-x-2">
-                                    <a class="text-blue-500">&#9998;</a>
-                                    <button class="text-red-500">&#128465;</button>
-                                </td>
-                            </tr>
-                            <tr class="border-t">
-                                <td class="py-3 px-4">3</td>
-                                <td class="py-3 px-4">Judul Berita 3</td>
-                                <td class="py-3 px-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                                    dignissim velit nisi, a finibus leo ornare quis.</td>
-                                <td class="py-3 px-4 flex space-x-2">
-                                    <a class="text-blue-500">&#9998;</a>
-                                    <button class="text-red-500">&#128465;</button>
-                                </td>
-                            </tr>
-                            <tr class="border-t">
-                                <td class="py-3 px-4">3</td>
-                                <td class="py-3 px-4">Judul Berita 4</td>
-                                <td class="py-3 px-4 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-                                    dignissim velit nisi, a finibus leo ornare quis.</td>
-                                <td class="py-3 px-4 flex space-x-2">
-                                    <a class="text-blue-500">&#9998;</a>
-                                    <button class="text-red-500">&#128465;</button>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
+
+        {{-- modal --}}
+        <x-modal/>
     @endauth
 
 @endsection

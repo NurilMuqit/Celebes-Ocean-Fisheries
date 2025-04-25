@@ -32,42 +32,15 @@
     @guest
         <section class="px-20 pb-10 pt-4">
             <div class="grid grid-cols-3 gap-20">
-                <div class="relative bg-gray-300 rounded-lg p-4 h-60 w-text-center">
-                    <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 1</p>
+                @foreach ($products as $product)
+                <div class="relative bg-gray-400 rounded-lg p-4 h-60 w-text-center">
+                    @if ($product->product_image)
+                        <img src="{{ asset('storage/' . $product->product_image) }}" alt="Product Image"
+                            class="w-full h-full object-cover rounded-lg">                    
+                    @endif
+                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru font-bold">{{ $product-> product_name }}</p>
                 </div>
-                <div class="relative bg-gray-300 rounded-lg p-4 text-center">
-                    <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 2</p>
-                </div>
-                <div class="relative bg-gray-300 rounded-lg p-4 text-center">
-                    <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 3</p>
-                </div>
-                <div class="relative bg-gray-300 rounded-lg p-4 h-60 w-text-center">
-                    <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 4</p>
-                </div>
-                <div class="relative bg-gray-300 rounded-lg p-4 text-center">
-                    <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 5</p>
-                </div>
-                <div class="relative bg-gray-300 rounded-lg p-4 text-center">
-                    <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 6</p>
-                </div>
-                <div class="relative bg-gray-300 rounded-lg p-4 h-60 w-text-center">
-                    <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 7</p>
-                </div>
-                <div class="relative bg-gray-300 rounded-lg p-4 text-center">
-                    <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 8</p>
-                </div>
-                <div class="relative bg-gray-300 rounded-lg p-4 text-center">
-                    <img src="" alt="">
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru">Product No 9</p>
-                </div>
+                @endforeach
             </div>
         </section>
     @endguest

@@ -12,8 +12,9 @@ class NewsController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('layout.news');
+    {   
+        $news = News::all();
+        return view('layout.news', compact('news'));
     }
 
     public function index2()
@@ -30,11 +31,6 @@ class NewsController extends Controller
         return view('admin.addnews');
     }
 
-    public function index5()
-    {
-        return view('admin.editnews');
-    }
-    
     /**
      * Show the form for creating a new resource.
      */
@@ -86,7 +82,8 @@ class NewsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $news = News::findOrFail($id);
+        return view('admin.editnews', compact('news'));
     }
 
     /**
@@ -94,7 +91,31 @@ class NewsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $news = News::findOrFail($id);
+
+        try {
+            $request->validate([
+                'title' => 'required',
+                'description' => 'required',
+                'image' => 'image|mimes:jpeg,png,jpg|max:2048',
+            ]);
+    
+            $news->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'image' => $request->file('image')->store('images', 'public'),
+            ]);
+    
+            return back()
+            ->with('modal_type', 'success')
+            ->with('message', 'News has been successfully updated!');
+            
+        } catch (\Throwable $e) {
+            return back()
+            ->with('modal_type', 'error')
+            ->with('message', 'Failed to update news: '.$e->getMessage())
+            ->withInput();
+        }
     }
 
     /**
@@ -102,6 +123,11 @@ class NewsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $news = News::findOrFail($id);
+        $news->delete();
+        
+        return back()
+        ->with('modal_type', 'success')
+        ->with('message', 'News has been successfully deleted!');
     }
 }
