@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Products;
 
 class PageController extends Controller
 {
@@ -11,8 +12,9 @@ class PageController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {    
-        return view('layout.homepage');
+    {   
+        $products = Products::latest()->take(3)->get();
+        return view('layout.homepage', compact('products'));
     }
 
     /**

@@ -33,11 +33,9 @@
         <section class="px-20 pb-10 pt-4">
             <div class="grid grid-cols-3 gap-20">
                 @foreach ($products as $product)
-                <div class="relative bg-gray-400 rounded-lg p-4 h-60 w-text-center">
-                    @if ($product->product_image)
+                <div class="relative rounded-lg p-4 h-60 w-text-center hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
                         <img src="{{ asset('storage/' . $product->product_image) }}" alt="Product Image"
                             class="w-full h-full object-cover rounded-lg">                    
-                    @endif
                     <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru font-bold">{{ $product-> product_name }}</p>
                 </div>
                 @endforeach

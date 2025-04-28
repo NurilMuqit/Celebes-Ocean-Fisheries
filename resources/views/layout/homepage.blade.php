@@ -27,21 +27,16 @@
                 our frozen and fresh fishery products are <b>caught fresh</b> from the ocean</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 m-5">
-                <div class="bg-abuabu2 rounded-lg shadow-lg p-6 flex flex-col items-center">
-                    <img src="{{ asset('images/dummy.png') }}" alt="product" class="object-cover rounded-lg">
-                    <h1 class="text-biru text-lg mt-4 text-center">Product No 1</h1>
-                </div>
-                <div class="bg-abuabu2 rounded-lg shadow-lg p-6 flex flex-col items-center">
-                    <img src="{{ asset('images/dummy.png') }}" alt="product" class="object-cover rounded-lg">
-                    <h1 class="text-biru text-lg mt-4 text-center">Product No 2</h1>
-                </div>
-                <div class="bg-abuabu2 rounded-lg shadow-lg p-6 flex flex-col items-center">
-                    <img src="{{ asset('images/dummy.png') }}" alt="product" class="object-cover rounded-lg">
-                    <h1 class="text-biru text-lg mt-4 text-center">Product No 3</h1>
-                </div>
+                @foreach ($products as $product)
+                    <div class="rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out">
+                        <img src="{{ asset('storage/' . $product->product_image) }}" alt="product"
+                            class="object-cover rounded-lg w-full h-48 ">
+                        <h1 class="text-biru text-lg mt-4 text-center">{{ $product->product_name }}</h1>
+                    </div>                    
+                @endforeach
             </div>
             <div class="mt-10">
-                <a href=""
+                <a href="{{ route('product') }}"
                     class="bg-biru text-putihsusu shadow-md  font-bold border border-putihsusu rounded-md py-2 px-11 hover:bg-blue-500">
                     View All Products
                 </a>

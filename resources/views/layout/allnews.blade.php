@@ -35,55 +35,19 @@
     <section>
         <div class="max-w-5xl mx-auto mb-10">
             <div class="space-y-6">
-
-                <a href="" class="flex p-4 hover:shadow-xl">
-                    <div class="w-1/4 bg-gray-300 h-32 rounded-md"></div>
-                    <div class="w-3/4 pl-4">
-                        <h2 class="font-bold text-lg text-biru">Indonesia Punya Peluang Besar untuk Pasar Seafood Dunia
-                        </h2>
-                        <div class="flex gap-10">
-                            <p class="text-biru text-sm font-semibold">ADMIN</p>
-                            <p class="text-biru text-sm italic">10 hour ago</p>
+                @foreach ($news as $n)
+                    <a href="{{ route('news.show', $n->id) }}" class="flex p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                        <img src="{{ asset('storage/' . $n->image) }}" class="w-1/4 h-32 rounded-md"></img>
+                        <div class="w-3/4 pl-4">
+                            <h2 class="font-bold text-lg text-biru">{{ $n->title }}</h2>
+                            <div class="flex gap-10">
+                                <p class="text-biru text-sm font-semibold">{{ $n->user->name ?? 'Unknown' }}</p>
+                                <p class="text-biru text-sm italic">{{ $n->created_at->diffForHumans() }}</p>
+                            </div>
+                            <p class="text-biru text-sm mt-2">{!! Str::limit(strip_tags($n->description), 100, '...') !!}</p>
                         </div>
-                        <p class="text-biru text-sm mt-2">Komoditas Seafood Dunia memiliki nilai pasar hingga U$ 419,09
-                            miliar di tahun 2030. Sementara di tahun 2023, diketahui nilai pasar seafood dunia sebesar Rp
-                            269,30 miliar dengan compounded annual growth rate (CAGR) naik sebesar 6,52% pada 2023-2030...
-                        </p>
-                    </div>
-                </a>
-
-                <a href="" class="flex p-4 hover:shadow-xl">
-                    <div class="w-1/4 bg-gray-300 h-32 rounded-md"></div>
-                    <div class="w-3/4 pl-4">
-                        <h2 class="font-bold text-lg text-biru">Indonesia Punya Peluang Besar untuk Pasar Seafood Dunia
-                        </h2>
-                        <div class="flex gap-10">
-                            <p class="text-biru text-sm font-semibold">ADMIN</p>
-                            <p class="text-biru text-sm italic">10 hour ago</p>
-                        </div>
-                        <p class="text-biru text-sm mt-2">Komoditas Seafood Dunia memiliki nilai pasar hingga U$ 419,09
-                            miliar di tahun 2030. Sementara di tahun 2023, diketahui nilai pasar seafood dunia sebesar Rp
-                            269,30 miliar dengan compounded annual growth rate (CAGR) naik sebesar 6,52% pada 2023-2030...
-                        </p>
-                    </div>
-                </a>
-
-                <a href="" class="flex p-4 hover:shadow-xl">
-                    <div class="w-1/4 bg-gray-300 h-32 rounded-md"></div>
-                    <div class="w-3/4 pl-4">
-                        <h2 class="font-bold text-lg text-biru">Indonesia Punya Peluang Besar untuk Pasar Seafood Dunia
-                        </h2>
-                        <div class="flex gap-10">
-                            <p class="text-biru text-sm font-semibold">ADMIN</p>
-                            <p class="text-biru text-sm italic">10 hour ago</p>
-                        </div>
-                        <p class="text-biru text-sm mt-2">Komoditas Seafood Dunia memiliki nilai pasar hingga U$ 419,09
-                            miliar di tahun 2030. Sementara di tahun 2023, diketahui nilai pasar seafood dunia sebesar Rp
-                            269,30 miliar dengan compounded annual growth rate (CAGR) naik sebesar 6,52% pada 2023-2030...
-                        </p>
-                    </div>
-                </a>
-
+                    </a>
+                @endforeach
             </div>
         </div>
     </section>

@@ -28,61 +28,43 @@
     @guest
         {{-- recent article --}}
         <section>
-            <div class="py-10 px-4 mx-10">
-                <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center">
-                    <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0">
-                        <div class="bg-gray-300 w-full h-60 lg:w-4/5 lg:h-64 rounded-md shadow-xl"></div>
-                    </div>
-                    <div class="lg:w-1/2 w-full text-biru lg:pl-10 mr-10 justify-center">
-                        <h2 class="text-2xl font-bold mb-4">{{ $news-> title }}</h2>
-                        <div class="flex gap-5 text-biru">
-                            <p class="mb-4 font-semibold">ADMIN</p>
-                            <p class="mb-4 italic">10 hour ago </p>
+            <a href="{{ route('news.show', $latestNews->id) }}">
+                <div class="py-10 px-4 mx-10 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                    <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center">
+                        <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0">
+                            <img src="{{ asset('storage/' . $latestNews->image) }}" class="bg-gray-300 w-full h-60 lg:w-4/5 lg:h-64 rounded-md shadow-xl object-cover" alt="{{ $latestNews->title }}">
                         </div>
-                        <p class="">Komoditas Seafood Dunia memiliki nilai pasar hingga US$ 419,09 miliar di tahun 2030.
-                            Sementara di tahun 2023, diketahui nilai pasar seafood dunia sebesar Rp 269,30 miliar dengan
-                            compounded annual growth rate (CAGR) naik sebesar 6,52% pada 2023-2030......</p>
+                        <div class="lg:w-1/2 w-full text-biru lg:pl-10 mr-10 justify-center">
+                            <h2 class="text-2xl font-bold mb-4">{{ $latestNews -> title }}</h2>
+                            <div class="flex gap-5 text-biru">
+                                <p class="mb-4 font-semibold">{{ $latestNews -> user -> name ?? 'Unknown' }}</p>
+                                <p class="mb-4 italic"> {{ $latestNews->created_at-> diffForHumans() }} </p>
+                            </div>
+                            <p class="">{{Str::limit(strip_tags($latestNews -> description), 300, '...')}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </section>
 
         {{-- weekly update --}}
         <section>
             <div class="max-w-7xl mx-auto p-6 mt-28 text-biru">
-                <h1 class="text-center text-2xl font-bold mb-6 text-shadow-lg">Weekly Update</h1>
+                <h1 class="text-center text-2xl font-bold mb-6 ">Weekly Update</h1>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-                    <div class="rounded-xl p-4">
-                        <div class="bg-gray-300 h-48 rounded mb-4"></div>
-                        <div class="flex justify-between text-sm text-gray-500 mb-2">
-                            <span class="text-biru font-semibold">ADMIN</span>
-                            <span class="text-biru italic">4 days ago</span>
-                        </div>
-                        <h2 class="font-semibold text-lg leading-snug">RI Eksportir Ikan Terbesar di Dunia Urutan 13, tapi Kalah
-                            dari Vietnam</h2>
-                    </div>
-
-                    <div class=" p-4">
-                        <div class="bg-gray-300 h-48 rounded mb-4"></div>
-                        <div class="flex justify-between text-sm text-gray-500 mb-2">
-                            <span class="text-biru font-semibold">ADMIN</span>
-                            <span class="text-biru italic">4 days ago</span>
-                        </div>
-                        <h2 class="font-semibold text-lg leading-snug">Prabowo Sebut RI Punya Modal Jadi Eksportir Ikan Nomor
-                            Satu Dunia</h2>
-                    </div>
-
-                    <div class=" p-4">
-                        <div class="bg-gray-300 h-48 rounded mb-4"></div>
-                        <div class="flex justify-between text-sm text-gray-500 mb-2">
-                            <span class="text-biru font-semibold">ADMIN</span>
-                            <span class="text-biru italic">2 days ago</span>
-                        </div>
-                        <h2 class="font-semibold text-lg leading-snug">Deretan Negara Tujuan Ekspor Perikanan Menjanjikan bagi
-                            Indonesia...</h2>
-                    </div>
+                    @foreach ($threeLatestNews as $weeklyUpdate)
+                        <a href="{{ route('news.show', $weeklyUpdate->id) }}">
+                            <div class="p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                                <img src="{{ asset('storage/' . $weeklyUpdate->image) }}" class="w-full h-48 rounded-lg mb-4" alt="{{ $weeklyUpdate->title }}">
+                                <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                    <span class="text-biru font-semibold">{{ $weeklyUpdate->user->name ?? 'Unknown' }}</span>
+                                    <span class="text-biru italic"> {{ $weeklyUpdate->created_at->diffForHumans() }} </span>
+                                </div>
+                                <h2 class="font-semibold text-lg leading-snug">{{ $weeklyUpdate->title }}</h2>
+                            </div> 
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -101,38 +83,19 @@
                     </a>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-5">
-                    <div class="p-4">
-                        <div class="w-full h-36 bg-gray-300 rounded-lg mb-3"></div>
-                        <p class="font-bold">Ekspor Produk Seafood Indonesia, Ini Manfaatnya!</p>
-                    </div>
-                    <div class="p-4">
-                        <div class="w-full h-36 bg-gray-300 rounded-lg mb-3"></div>
-                        <p class="font-bold">UMKM Sultra Sukses Ekspor Belasan Ton Daging Rajungan...</p>
-                    </div>
-                    <div class="p-4">
-                        <div class="w-full h-36 bg-gray-300 rounded-lg mb-3"></div>
-                        <p class="font-bold">Pj Gubernur Jateng Lepas Ekspor Perdana 20 Ton Udang...</p>
-                    </div>
-                    <div class="p-4">
-                        <div class="w-full h-36 bg-gray-300 rounded-lg mb-3"></div>
-                        <p class="font-bold">KKP: Ekspor produk perikanan Mei 2024 capai 2,3 miliar dolar...</p>
-                    </div>
-                    <div class="p-4">
-                        <div class="w-full h-36 bg-gray-300 rounded-lg mb-3"></div>
-                        <p class="font-bold">Ekspor Produk Seafood Indonesia, Ini Manfaatnya!</p>
-                    </div>
-                    <div class="p-4">
-                        <div class="w-full h-36 bg-gray-300 rounded-lg mb-3"></div>
-                        <p class="font-bold">UMKM Sultra Sukses Ekspor Belasan Ton Daging Rajungan...</p>
-                    </div>
-                    <div class="p-4">
-                        <div class="w-full h-36 bg-gray-300 rounded-lg mb-3"></div>
-                        <p class="font-bold">Pj Gubernur Jateng Lepas Ekspor Perdana 20 Ton Udang...</p>
-                    </div>
-                    <div class="p-4">
-                        <div class="w-full h-36 bg-gray-300 rounded-lg mb-3"></div>
-                        <p class="font-bold">KKP: Ekspor produk perikanan Mei 2024 capai 2,3 miliar dolar...</p>
-                    </div>
+                    @foreach ($tenFirstNews as $tenten)
+                        <a href="{{ route('news.show', $tenten->id) }}">
+                            <div class="p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                                <img src="{{ asset('storage/' . $tenten->image) }}" class="w-full h-48 rounded-lg mb-4" alt="{{ $tenten->title }}">
+                                <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                    <span class="text-biru font-semibold">{{ $tenten->user->name ?? 'Unknown' }}</span>
+                                    <span class="text-biru italic"> {{ $tenten->created_at->diffForHumans() }} </span>
+                                </div>
+                                <h2 class="font-semibold text-lg leading-snug">{{ $tenten->title }}</h2>
+                            </div>     
+                        </a>
+                    @endforeach
+                    
                 </div>
             </div>
         </section>
@@ -166,7 +129,7 @@
                             <tr class="border-t">
                                 <td class="py-3 px-4">{{ $n -> id }}</td>
                                 <td class="py-3 px-4">{{ $n -> title }}</td>
-                                <td class="py-3 px-4 text-sm">{{ $n -> description }}</td>
+                                <td class="py-3 px-4 text-sm">{{ Str::limit(strip_tags($n-> description ), 120, '...') }}</td>
                                 <td class="py-3 px-4 flex space-x-2">
                                     <a class="text-blue-500" href="{{ route('news.edit', $n -> id) }}">&#9998;</a>
                                     <form action="{{ route('news.delete', $n->id) }}" method="POST" style="display:inline;">

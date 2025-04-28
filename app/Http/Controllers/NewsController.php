@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\News;
+use Illuminate\Support\Facades\Auth;
 
 class NewsController extends Controller
 {
@@ -14,16 +15,21 @@ class NewsController extends Controller
     public function index()
     {   
         $news = News::all();
-        return view('layout.news', compact('news'));
+        $latestNews = News::latest()->first();
+        $threeLatestNews = News::latest()->take(3)->get();
+        $tenFirstNews = News::first()->take(10)->get();
+        return view('layout.news', compact('news', 'latestNews', 'threeLatestNews', 'tenFirstNews'));
     }
 
     public function index2()
-    {
-        return view('layout.allnews');
+    {   
+        $news = News::all();
+        return view('layout.allnews', compact('news'));
     }
-    public function index3()
-    {
-        return view('layout.newssection');
+    public function index3(string $id)
+    {   
+        $news = News::findOrFail($id);
+        return view('layout.newssection', compact('news'));
     }
 
     public function index4()
@@ -52,6 +58,7 @@ class NewsController extends Controller
             ]);
     
             News::create([
+                'user_id' => Auth::id(),
                 'title' => $request->title,
                 'description' => $request->description,
                 'image' => $request->file('image')->store('images', 'public'),
