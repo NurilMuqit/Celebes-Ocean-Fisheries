@@ -17,7 +17,7 @@ class NewsController extends Controller
         $news = News::all();
         $latestNews = News::latest()->first();
         $threeLatestNews = News::latest()->take(3)->get();
-        $tenFirstNews = News::first()->take(10)->get();
+        $tenFirstNews = News::inRandomOrder()->take(10)->get();
         return view('layout.news', compact('news', 'latestNews', 'threeLatestNews', 'tenFirstNews'));
     }
 

@@ -64,7 +64,7 @@
     </section>
 
     {{-- contact --}}
-    <section class="">
+    <section id="contact">
         <div class="max-w-4xl m-20 my-10 px-4">
             <h2 class="text-xl font-bold text-biru">Be Our Partner in Your Country</h2>
             <p class="text-biru mb-6 italic">Please contact us to know more about our company, products, and sample

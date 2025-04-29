@@ -16,6 +16,12 @@
                                 <form action="">
                                     <input type="text" name="name" id="" placeholder="Name"
                                         class="border border-biru w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <input type="text" name="phone_number" id="" placeholder="Phone Number"
+                                        class="border border-biru w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <input type="email" name="email" id="" placeholder="Email"
+                                        class="border border-biru w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <input type="text" name="company" id="" placeholder="company"
+                                        class="border border-biru w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">                                    
                                 </form>
                             </div>
                         </div>
@@ -23,7 +29,7 @@
                 </div>
                 <div class="px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 flex justify-center">
                     <button type="button"
-                        class="inline-flex w-full justify-center rounded-md bg-biru px-16 py-2 text-sm font-semibold text-putihsusu shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto">Okay</button>
+                        class="inline-flex w-full justify-center rounded-md bg-biru px-16 py-2 text-sm font-semibold text-putihsusu shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto">Submit</button>
                 </div>
             </div>
         </div>

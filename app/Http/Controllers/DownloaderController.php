@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Downloader;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class DownloaderController extends Controller
 {
@@ -11,8 +14,18 @@ class DownloaderController extends Controller
      * Display a listing of the resource.
      */
     public function index()
+    {   
+        $downloader =Downloader::all();
+        return view('admin.downloader', compact('downloader'));
+    }  
+
+    public function companyProfile(): StreamedResponse
     {
-        return view('admin.downloader');
+        $path = storage_path('app/private/COF-Company-Profile.pdf');
+
+        return response()->streamDownload(function () use ($path) {
+            echo file_get_contents($path);
+        }, 'COF-Company-Profile.pdf');
     }
 
     /**

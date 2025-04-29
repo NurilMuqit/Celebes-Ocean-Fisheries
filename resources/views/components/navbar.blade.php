@@ -9,7 +9,7 @@
             <a href="{{ route('home') }}" class="hover:text-gray-300">Home</a>
             <a href="{{ route('about') }}" class="hover:text-gray-300">About Us</a>
             <a href="{{ route('product') }}" class="hover:text-gray-300">Products</a>
-            <a href="#contact" class="hover:text-gray-300">Contact Us</a>
+            <a href="{{ route('home') }}#contact" class="hover:text-gray-300">Contact Us</a>
             <a href="{{ route('news') }}" class="hover:text-gray-300">News & Articles</a>
         @auth
             <livewire:admin-dropdown />

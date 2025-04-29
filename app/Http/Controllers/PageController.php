@@ -13,7 +13,7 @@ class PageController extends Controller
      */
     public function index()
     {   
-        $products = Products::latest()->take(3)->get();
+        $products = Products::inRandomOrder()->take(3)->get();
         return view('layout.homepage', compact('products'));
     }
 

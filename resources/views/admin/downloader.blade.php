@@ -40,49 +40,20 @@
                     </tr>
                 </thead>
                 <tbody class="text-blue-700">
+
+                    @foreach ($downloader as $d)
                     <tr class="border-t">
-                        <td class="py-3 px-4 text-center">1</td>
-                        <td class="py-3 px-4 text-center">Alex</td>
-                        <td class="py-3 px-4 text-center">0812345678</td>
-                        <td class="py-3 px-4 text-center">gegemipa@gmail.com</td>
-                        <td class="py-3 px-4 text-center">PT Djarum Coklat</td>
+                        <td class="py-3 px-4 text-center">{{ $d -> id }}</td>
+                        <td class="py-3 px-4 text-center">{{ $d -> name }}</td>
+                        <td class="py-3 px-4 text-center">{{ $d -> phone_number }}</td>
+                        <td class="py-3 px-4 text-center">{{ $d -> email }}</td>
+                        <td class="py-3 px-4 text-center">{{ $d -> company }}</td>
                         <td class="py-3 px-4 flex space-x-2 justify-center">
                             <button class="text-red-500">&#9993;</button>
                         </td>
                     </tr>
+                    @endforeach
                     
-                    <tr>
-                        <td class="py-3 px-4 text-center">2</td>
-                        <td class="py-3 px-4 text-center">Budi</td>
-                        <td class="py-3 px-4 text-center">0812345678</td>
-                        <td class="py-3 px-4 text-center">gegeteknik@gmail.com</td>
-                        <td class="py-3 px-4 text-center">PT Gudang Garam</td>
-                        <td class="py-3 px-4 text-center flex space-x-2 justify-center">
-                            <button class="text-red-500">&#9993;</button>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="py-3 px-4 text-center">3</td>
-                        <td class="py-3 px-4 text-center">Cindy</td>
-                        <td class="py-3 px-4 text-center">0812345678</td>
-                        <td class="py-3 px-4 text-center">gegefarmasi@gmail.com</td>
-                        <td class="py-3 px-4 text-center">PT SidoMuncul</td>
-                        <td class="py-3 px-4 text-center flex space-x-2 justify-center">
-                            <button class="text-red-500">&#9993;</button>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="py-3 px-4 text-center">4</td>
-                        <td class="py-3 px-4 text-center">Diana</td>
-                        <td class="py-3 px-4 text-center">0812345678</td>
-                        <td class="py-3 px-4 text-center">gegekedok@gmail.com</td>
-                        <td class="py-3 px-4 text-center">PT Kimia Farma</td>
-                        <td class="py-3 px-4 text-center flex space-x-2 justify-center">
-                            <button class="text-red-500">&#9993;</button>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
         </div>

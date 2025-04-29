@@ -31,4 +31,5 @@ Route::get('/news/edit/{id}', [NewsController::class, 'edit'])->name('news.edit'
 Route::put('/news/edit/{id}', [NewsController::class, 'update'])->name('news.edit.post');
 Route::delete('/news/delete/{id}', [NewsController::class, 'destroy'])->name('news.delete');
 
-Route::get('/about/downloader',[DownloaderController::class, 'index'])->name('downloader'); 
+Route::get('/about/downloader',[DownloaderController::class, 'index'])->name('downloader');
+Route::get('/download/company-profile', [DownloaderController::class, 'companyProfile'])->name('download.company-profile');
