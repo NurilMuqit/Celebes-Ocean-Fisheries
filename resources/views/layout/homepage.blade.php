@@ -29,7 +29,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 m-5">
                 @foreach ($products as $product)
                     <div class="rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out">
-                        <img src="{{ asset('storage/' . $product->product_image) }}" alt="product"
+                        <img src="{{ asset('storage/' . $product->product_image) }}" alt="{{ $product->product_name }}"
                             class="object-cover rounded-lg w-full h-48 ">
                         <h1 class="text-biru text-lg mt-4 text-center">{{ $product->product_name }}</h1>
                     </div>                    
@@ -70,31 +70,40 @@
             <p class="text-biru mb-6 italic">Please contact us to know more about our company, products, and sample
                 requests
             </p>
-            <form class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
+            <form method="POST" enctype="multipart/form-data" action="{{ route('form.add') }}" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                @csrf
                 <div class="md:col-span-1 space-y-4 ">
-                    <input type="text" placeholder="Name"
+                    <input type="text" placeholder="Name" name="name"
                         class="w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <input type="email" placeholder="Email"
+                    <input type="email" placeholder="Email" name="email"
                         class="w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <input type="text" placeholder="Phone Number"
+                    <input type="text" placeholder="Phone Number" name="phone"
                         class="w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
 
                 <div class="md:col-span-2 space-y-4">
-                    <input type="text" placeholder="Subject"
+                    <input type="text" placeholder="Subject" name="subject"
                         class="w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <textarea placeholder="Your Message"
+                    <textarea placeholder="Your Message" name="message"
                         class="w-full p-3 rounded-md shadow-lg h-28 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                 </div>
 
                 <div class="md:col-span-3 flex justify-end">
+                    @guest
                     <button type="submit"
-                        class="bg-biru text-putihsusu font-semibold py-2 px-16 rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Submit</button>
+                    class="bg-biru text-putihsusu font-semibold py-2 px-16 rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">Submit</button>
+                    @endguest
+                    @auth
+                    <a href="{{ route('user.contact') }}"
+                    class="bg-biru text-putihsusu font-semibold py-2 px-16 rounded-md hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">See Result</a>
+                    @endauth
                 </div>
 
             </form>
         </div>
 
     </section>
+
+    {{-- modal --}}
+    <x-modal/>
 @endsection

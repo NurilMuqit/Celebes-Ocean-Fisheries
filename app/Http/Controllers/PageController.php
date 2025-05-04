@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Form;
 use Illuminate\Http\Request;
 use App\Models\Products;
 
@@ -16,7 +17,12 @@ class PageController extends Controller
         $products = Products::inRandomOrder()->take(3)->get();
         return view('layout.homepage', compact('products'));
     }
-
+    public function index2()
+    {   
+        $form = Form::all();
+        return view('admin.usercontact', compact('form'));
+    }
+    
     /**
      * Show the form for creating a new resource.
      */
@@ -29,8 +35,37 @@ class PageController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        try {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required',
+                'phone' => 'required',
+                'subject' => 'required',
+                'message' => 'required',
+            ]);
+    
+            Form::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'subject' => $request->subject,
+                'message' => $request->message,
+            ]);
+    
+            return back()
+            ->with('modal_type', 'success')
+            ->with('modal_title', 'Thank you!')
+            ->with('message', 'Thank you for sending your warm message 
+                    Can’t wait to work with you soon  ');
+
+        } catch (\Throwable $e) {
+            return back()
+            ->with('modal_type', 'error')
+            ->with('modal_title', 'Error!')
+            ->with('message', 'Failed to add form: '.$e->getMessage())
+            ->withInput();
+        }
     }
 
     /**
@@ -46,7 +81,8 @@ class PageController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $form = Form::findOrFail($id);
+        return view('admin.userdetails', compact('form'));
     }
 
     /**

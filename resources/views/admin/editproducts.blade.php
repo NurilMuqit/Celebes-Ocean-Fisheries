@@ -19,7 +19,7 @@
 
     {{-- form section --}}
     <section>
-        <form action="{{ route('product.edit.post', $product->id) }}" method="POST" enctype="multipart/form-data" class="mt-4 grid grid-cols-2 gap-6 m-10">
+        <form action="{{ route('product.edit.post', $product->product_slug) }}" method="POST" enctype="multipart/form-data" class="mt-4 grid grid-cols-2 gap-6 m-10">
             @csrf
             @method('PUT')
 

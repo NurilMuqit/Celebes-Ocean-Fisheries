@@ -27,25 +27,31 @@
 
     @guest
         {{-- recent article --}}
-        <section>
-            <a href="{{ route('news.show', $latestNews->id) }}">
-                <div class="py-10 px-4 mx-10 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
-                    <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center">
-                        <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0">
-                            <img src="{{ asset('storage/' . $latestNews->image) }}" class="bg-gray-300 w-full h-60 lg:w-4/5 lg:h-64 rounded-md shadow-xl object-cover" alt="{{ $latestNews->title }}">
-                        </div>
-                        <div class="lg:w-1/2 w-full text-biru lg:pl-10 mr-10 justify-center">
-                            <h2 class="text-2xl font-bold mb-4">{{ $latestNews -> title }}</h2>
-                            <div class="flex gap-5 text-biru">
-                                <p class="mb-4 font-semibold">{{ $latestNews -> user -> name ?? 'Unknown' }}</p>
-                                <p class="mb-4 italic"> {{ $latestNews->created_at-> diffForHumans() }} </p>
+        @if ($latestNews)
+            <section>
+                <a href="{{ route('news.show', ['news_slug' => $latestNews->news_slug]) }}">
+                    <div class="py-10 px-4 mx-10 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                        <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center">
+                            <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0">
+                                <img src="{{ asset('storage/' . $latestNews->image) }}" class="bg-gray-300 w-full h-60 lg:w-4/5 lg:h-64 rounded-md shadow-xl object-cover" alt="{{ $latestNews->title }}">
                             </div>
-                            <p class="">{{Str::limit(strip_tags($latestNews -> description), 300, '...')}}</p>
+                            <div class="lg:w-1/2 w-full text-biru lg:pl-10 mr-10 justify-center">
+                                <h2 class="text-2xl font-bold mb-4">{{ $latestNews->title }}</h2>
+                                <div class="flex gap-5 text-biru">
+                                    <p class="mb-4 font-semibold">{{ $latestNews->user->name ?? 'Unknown' }}</p>
+                                    <p class="mb-4 italic">{{ $latestNews->created_at->diffForHumans() }}</p>
+                                </div>
+                                <p>{{ Str::limit(strip_tags($latestNews->description), 300, '...') }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-        </section>
+                </a>
+            </section>
+        @else
+            <section class="text-center text-gray-500 py-10">
+            <p>No news available.</p>
+            </section>
+        @endif
 
         {{-- weekly update --}}
         <section>
@@ -131,8 +137,8 @@
                                 <td class="py-3 px-4">{{ $n -> title }}</td>
                                 <td class="py-3 px-4 text-sm">{{ Str::limit(strip_tags($n-> description ), 120, '...') }}</td>
                                 <td class="py-3 px-4 flex space-x-2">
-                                    <a class="text-blue-500" href="{{ route('news.edit', $n -> id) }}">&#9998;</a>
-                                    <form action="{{ route('news.delete', $n->id) }}" method="POST" style="display:inline;">
+                                    <a class="text-blue-500" href="{{ route('news.edit', ['news_slug'=> $n-> news_slug ]) }}">&#9998;</a>
+                                    <form action="{{ route('news.delete', ['news_slug'=> $n-> news_slug ]) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" onclick="return confirm('Yakin mau hapus?')">&#128465;</button>

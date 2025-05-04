@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'title')
+@section('title',$news-> title )
 
 @section('content')
     {{-- news section --}}
@@ -18,7 +18,7 @@
             <div class="text-center text-2xl font-bold">{{ $news -> title }}</div>
             <div class="flex justify-center items-center gap-8 text-sm">
                 <p class="font-bold">{{ $news -> user -> name ?? 'Unknown' }}</p>
-                <p class="italic">{{ $news->created_at-> diffForHumans() }}</p>
+                <p class="italic">{{ $news-> created_at -> format('d-M-Y') }}</p>
             </div>
             <img src="{{ asset('storage/' . $news->image) }}" class="w-full h-64  rounded-lg my-5"></img>
             <div class="text-base leading-relaxed text-justify trix-content">

@@ -19,12 +19,12 @@
 
     {{-- form section --}}
     <section>
-        <form action="{{ route('news.edit.post', $news->id ) }}" method="POST" enctype="multipart/form-data" class="mt-4 grid grid-cols-2 gap-6 m-20">
+        <form action="{{ route('news.edit.post', $news->news_slug ) }}" method="POST" enctype="multipart/form-data" class="mt-4 grid grid-cols-2 gap-6 m-20">
             @csrf
             @method('PUT')
             <div>
                 <label class="block text-biru italic">Title</label>
-                <input type="text" placeholder="ex : Fish" value="{{ $news -> title }}"
+                <input type="text" placeholder="ex : Fish" name="title" value="{{ $news -> title }}"
                     class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1">
                 <label class="block text-biru italic mt-4">Description</label>
                 <input id="description" type="hidden" name="description" value="{{ $news -> description }}">
@@ -38,29 +38,58 @@
                     <div class="mt-2 flex gap-4 items-center">
                         @if ($news->image)
                             <img src="{{ asset('storage/' . $news->image) }}" alt="Uploaded Image"
-                                class="w-1/2 h-80 object-cover rounded-md border border-blue-400">                        
-                        @endif
-                        <div
-                        class="border-dashed border-2 border-blue-300 rounded-md flex flex-col items-center justify-center w-1/2 h-80 cursor-pointer mt-1 hover:bg-blue-50">
-                        <span class="text-blue-700"><svg class="w-6 h-6 text-biru" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                                viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M13 10a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H14a1 1 0 0 1-1-1Z"
-                                    clip-rule="evenodd" />
-                                <path fill-rule="evenodd"
-                                    d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12c0 .556-.227 1.06-.593 1.422A.999.999 0 0 1 20.5 20H4a2.002 2.002 0 0 1-2-2V6Zm6.892 12 3.833-5.356-3.99-4.322a1 1 0 0 0-1.549.097L4 12.879V6h16v9.95l-3.257-3.619a1 1 0 0 0-1.557.088L11.2 18H8.892Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </span>
-                        <p class="text-biru italic">Select image (JPG, PNG)</p>
-                        </div>
+                                class="w-1/2 h-56 object-cover rounded-md border border-blue-400">
+                        @endif            
+                        <label
+                            class="w-1/2 h-56 border-dashed border-2 border-blue-400 rounded-md relative flex flex-col items-center justify-center cursor-pointer hover:bg-blue-50 overflow-hidden">
+                            
+                            <input type="file" name="image" id="imageUpload" class="hidden" accept="image/png, image/jpeg" onchange="previewFile()">
+                
+                            <span id="icon" class="text-biru text-xl z-10">
+                                <svg class="w-6 h-6 text-biru" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd" d="M13 10a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H14a1 1 0 0 1-1-1Z" clip-rule="evenodd" />
+                                    <path fill-rule="evenodd"
+                                        d="M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12c0 .556-.227 1.06-.593 1.422A.999.999 0 0 1 20.5 20H4a2.002 2.002 0 0 1-2-2V6Zm6.892 12 3.833-5.356-3.99-4.322a1 1 0 0 0-1.549.097L4 12.879V6h16v9.95l-3.257-3.619a1 1 0 0 0-1.557.088L11.2 18H8.892Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </span>
+                            <p id="uploadText" class="text-biru italic text-sm text-center z-10">Change image (JPG, PNG)</p>
+                
+                            <img id="imagePreview" class="absolute top-0 left-0 w-full h-full object-cover rounded-md hidden" />
+                        </label>
                     </div>
                 </div>
                 <div class="flex justify-end">
                     <button type="submit" class="bg-biru font-bold text-putihsusu    px-8 py-2 rounded-md mt-4">Save
-                        Product</button>
+                        News</button>
                 </div>
             </div>
         </form>
     </section>
+
+    {{-- modal --}}
+    <x-modal/>
+
+    {{-- Script --}}
+    <script>
+        function previewFile() {
+            const input = document.getElementById('imageUpload');
+            const file = input.files[0];
+            const preview = document.getElementById('imagePreview');
+            const icon = document.getElementById('icon');
+            const text = document.getElementById('uploadText');
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.classList.remove('hidden');
+                    icon.classList.add('hidden');
+                    text.classList.add('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>    
 @endsection

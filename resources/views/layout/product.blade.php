@@ -30,17 +30,24 @@
 
     {{-- products --}}
     @guest
-        <section class="px-20 pb-10 pt-4">
-            <div class="grid grid-cols-3 gap-20">
-                @foreach ($products as $product)
-                <div class="relative rounded-lg p-4 h-60 w-text-center hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
-                        <img src="{{ asset('storage/' . $product->product_image) }}" alt="Product Image"
-                            class="w-full h-full object-cover rounded-lg">                    
-                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru font-bold">{{ $product-> product_name }}</p>
+        @if ($products->isNotEmpty())
+            <section class="px-20 pb-10 pt-4">
+                <div class="grid grid-cols-3 gap-20">
+                    @foreach ($products as $product)
+                    <div class="relative rounded-lg p-4 h-60 w-text-center hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                            <img src="{{ asset('storage/' . $product->product_image) }}" alt="{{ $product->product_name }}"
+                                class="w-full h-full object-cover rounded-lg">                    
+                        <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru font-bold">{{ $product-> product_name }}</p>
+                    </div>
+                    @endforeach
                 </div>
-                @endforeach
-            </div>
-        </section>
+            </section>
+        @else
+            <section class="text-center text-gray-500 py-10">
+                <p>No products available.</p>
+            </section>
+        @endif
+        
     @endguest
 
     {{-- admin edit --}}
@@ -74,8 +81,8 @@
                                 <td class="py-3 px-4 text-center">{{ $product-> product_name }}</td>
                                 <td class="py-3 px-4 text-center">{{ $product-> product_description }}</td>
                                 <td class="py-3 px-4 flex space-x-2 justify-center">
-                                    <a class="text-blue-500" href="{{ route('product.edit', $product->id) }}">&#9998;</a>
-                                <form action="{{ route('product.delete', $product->id) }}" method="POST" style="display:inline;">
+                                    <a class="text-blue-500" href="{{ route('product.edit', ['product_slug'=> $product-> product_slug ] ) }}">&#9998;</a>
+                                <form action="{{ route('product.delete', ['product_slug'=> $product-> product_slug ] ) }}" method="POST" style="display:inline;">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" onclick="return confirm('Yakin mau hapus?')">&#128465;</button>
