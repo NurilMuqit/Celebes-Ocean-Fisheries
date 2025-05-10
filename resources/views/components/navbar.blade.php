@@ -2,7 +2,9 @@
     <nav class=" bg-biru items-center mx-auto flex rounded-b-lg justify-between px-2">
         <div class="flex items-center">
             <a href="#">
-                <img src="{{ asset('images/logopt.png') }}" alt="" class="h-20 w-auto">
+                <div class="bg-white rounded-full m-2">
+                    <img src="{{ asset('images/logopt.png') }}" alt="" class="h-16 w-16 object-contain">
+                </div>
             </a>
         </div>
         <div class="flex flex-row space-x-16 text-putihsusu font-bold mr-10">

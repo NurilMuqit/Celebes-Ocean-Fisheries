@@ -2,22 +2,24 @@
     <div class="flex">
         <div class="mx-2">
             <a href="#">
-                <img src="{{ asset('images/logopt.png') }}" alt="" class="h-auto w-auto lg:w-32 lg:h-20">
+                <div class="bg-white rounded-full m-2 w-20 h-20 flex items-center justify-center">
+                    <img src="{{ asset('images/logopt.png') }}" alt="Logo" class="object-contain w-full h-full">
+                </div>
             </a>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-4 text-putihsusu">
             <div>
-                <h1 class=" font-bold text-xl mb-2">Celebes Ocean Fisheries</h1>
-                <p>We also continue to update the information about the company through social
+                <h1 class=" font-bold text-lg mb-2">Celebes Ocean Fisheries</h1>
+                <p class="text-sm">We also continue to update the information about the company through social
                     media. For the latest
                     information you can follow our social media.</p>
             </div>
             <div>
-                <h1 class=" font-bold text-xl mb-2">Let's Get in Touch</h1>
-                <div class="grid-cols-1 md:grid-cols-2 flex gap-8">
+                <h1 class=" font-bold text-lg mb-2">Let's Get in Touch</h1>
+                <div class="grid-cols-1 md:grid-cols-2 flex gap-8 text-sm">
                     <div class="leading-relaxed">
                         <div class="flex">
-                            <svg class="h-5 w-5 text-putihsusu m-1 flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                            <svg class="h-4 w-4 text-putihsusu m-1 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -25,7 +27,7 @@
                             <a href="">(+62)811 4488 558</a>
                         </div>
                         <div class="flex">
-                            <svg class="h-5 w-5 text-putihsusu m-1 flex-shrink-0" width="24" height="24"
+                            <svg class="h-4 w-4 text-putihsusu m-1 flex-shrink-0" width="24" height="24"
                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -39,7 +41,7 @@
                     </div>
                     <div class="mr-11">
                         <div class="flex">
-                            <svg class="h-5 w-5 text-putihsusu m-1 flex-shrink-0" width="24" height="24"
+                            <svg class="h-4 w-4 text-putihsusu m-1 flex-shrink-0" width="24" height="24"
                                 viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <path stroke="none" d="M0 0h24v24H0z" />
@@ -49,7 +51,7 @@
                             <a href="">celebesoceanfisheries@gmail.com</a>
                         </div>
                         <div class="flex">
-                            <svg class="h-5 w-5 text-putihsusu m-1 flex-shrink-0" viewBox="0 0 24 24" fill="none"
+                            <svg class="h-4 w-4 text-putihsusu m-1 flex-shrink-0" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path
                                     d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -63,5 +65,5 @@
             </div>
         </div>
     </div>
-    <p class="text-putihsusu text-center py-4 mt-5">&copy; 2025 Celebes Ocean Fisheries. All Rights Reserved.</p>
+    <p class="text-putihsusu text-center py-4 mt-5 text-sm">&copy; 2025 Celebes Ocean Fisheries. All Rights Reserved.</p>
 </footer>

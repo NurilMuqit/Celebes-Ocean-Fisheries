@@ -16,13 +16,13 @@
         @endif
     </div>
 
-    <!-- Modal Konfirmasi Logout -->
+    {{-- modal logout --}}
     @if($showLogoutModal)
     <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 text-red-800 ">
         <div class="bg-white py-6 px-10 rounded-lg shadow-lg w-auto text-center">
             <h2 class="text-lg font-bold mb-1 text-shadow-md">Logout from this session?</h2>
             <p class="font-normal italic">Are you sure want to logout?</p>                            
-            <p class="font-normal italic">You can login with your username and password</p>
+            <p class="font-normal italic">You can login with your email and password</p>
             <div class="flex justify-center space-x-10 mt-2">
                 <button wire:click="logout"
                         class="px-10 py-1 bg-white text-red-800 rounded-lg border-2 border-red-800 hover:bg-red-300 drop-shadow-md">Logout</button>

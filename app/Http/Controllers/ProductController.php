@@ -53,7 +53,7 @@ class ProductController extends Controller
                 'product_image' => $request->file('product_image')->store('images', 'public'),
             ]);
     
-            return back()
+            return redirect()->route('product')
             ->with('modal_type', 'success')
             ->with('modal_title', 'Added!')
             ->with('message', 'Product has been successfully added!');
@@ -110,7 +110,7 @@ class ProductController extends Controller
             $product-> product_description = $request->input('product_description');
             $product->save();
         
-            return redirect()->route('product.edit', $product_slug)
+            return redirect()->route('product')
             ->with('modal_type', 'success')
             ->with('modal_title', 'Saved!')
             ->with('message', 'Product updated successfully.');

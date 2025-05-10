@@ -18,12 +18,12 @@
 
 </head>
 
-<body class="font-montserrat bg-putihsusu">
+<body class="font-montserrat bg-putihsusu flex flex-col min-h-screen">
 
     {{-- header --}}
     <x-navbar />
 
-    <main>
+    <main class="flex-grow">
         @yield('content')
     </main>
 

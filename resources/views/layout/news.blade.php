@@ -54,57 +54,61 @@
         @endif
 
         {{-- weekly update --}}
-        <section>
-            <div class="max-w-7xl mx-auto p-6 mt-28 text-biru">
-                <h1 class="text-center text-2xl font-bold mb-6 ">Weekly Update</h1>
+        @if ($threeLatestNews->isNotEmpty())
+            <section>
+                <div class="max-w-7xl mx-auto p-6 mt-28 text-biru">
+                    <h1 class="text-center text-2xl font-bold mb-6 ">Weekly Update</h1>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    @foreach ($threeLatestNews as $weeklyUpdate)
-                        <a href="{{ route('news.show', $weeklyUpdate->id) }}">
-                            <div class="p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
-                                <img src="{{ asset('storage/' . $weeklyUpdate->image) }}" class="w-full h-48 rounded-lg mb-4" alt="{{ $weeklyUpdate->title }}">
-                                <div class="flex justify-between text-sm text-gray-500 mb-2">
-                                    <span class="text-biru font-semibold">{{ $weeklyUpdate->user->name ?? 'Unknown' }}</span>
-                                    <span class="text-biru italic"> {{ $weeklyUpdate->created_at->diffForHumans() }} </span>
-                                </div>
-                                <h2 class="font-semibold text-lg leading-snug">{{ $weeklyUpdate->title }}</h2>
-                            </div> 
-                        </a>
-                    @endforeach
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        @foreach ($threeLatestNews as $weeklyUpdate)
+                            <a href="{{ route('news.show', ['news_slug' => $weeklyUpdate->news_slug]) }}">
+                                <div class="p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                                    <img src="{{ asset('storage/' . $weeklyUpdate->image) }}" class="w-full h-48 rounded-lg mb-4 object-cover" alt="{{ $weeklyUpdate->title }}">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span class="text-biru font-semibold">{{ $weeklyUpdate->user->name ?? 'Unknown' }}</span>
+                                        <span class="text-biru italic"> {{ $weeklyUpdate->created_at->diffForHumans() }} </span>
+                                    </div>
+                                    <h2 class="font-semibold text-lg leading-snug">{{ $weeklyUpdate->title }}</h2>
+                                </div> 
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
+        
 
         {{-- Articles --}}
-        <section>
-            <div class="max-w-7xl mx-auto mb-20 mt-10 text-biru">
-                <div class="flex justify-between items-center">
-                    <h2 class="text-2xl font-bold">Articles</h2>
-                    <a href="{{ route('news.all') }}" class="text-shadow-lg italic flex">See All <svg class="w-6 h-6 text-biru"
-                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                            viewBox="0 0 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 12H5m14 0-4 4m4-4-4-4" />
-                        </svg>
-                    </a>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-5">
-                    @foreach ($tenFirstNews as $tenten)
-                        <a href="{{ route('news.show', $tenten->id) }}">
-                            <div class="p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
-                                <img src="{{ asset('storage/' . $tenten->image) }}" class="w-full h-48 rounded-lg mb-4" alt="{{ $tenten->title }}">
-                                <div class="flex justify-between text-sm text-gray-500 mb-2">
-                                    <span class="text-biru font-semibold">{{ $tenten->user->name ?? 'Unknown' }}</span>
-                                    <span class="text-biru italic"> {{ $tenten->created_at->diffForHumans() }} </span>
-                                </div>
-                                <h2 class="font-semibold text-lg leading-snug">{{ $tenten->title }}</h2>
-                            </div>     
+        @if ($tenFirstNews->isNotEmpty())
+            <section>
+                <div class="max-w-7xl mx-auto mb-20 mt-10 text-biru">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-2xl font-bold">Articles</h2>
+                        <a href="{{ route('news.all') }}" class="text-shadow-lg italic flex">See All <svg class="w-6 h-6 text-biru"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 12H5m14 0-4 4m4-4-4-4" />
+                            </svg>
                         </a>
-                    @endforeach
-                    
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-5">
+                        @foreach ($tenFirstNews as $tenten)
+                            <a href="{{ route('news.show', ['news_slug' => $tenten->news_slug]) }}">
+                                <div class="p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                                    <img src="{{ asset('storage/' . $tenten->image) }}" class="w-full h-48 rounded-lg mb-4 object-cover" alt="{{ $tenten->title }}">
+                                    <div class="flex justify-between text-sm text-gray-500 mb-2">
+                                        <span class="text-biru font-semibold">{{ $tenten->user->name ?? 'Unknown' }}</span>
+                                        <span class="text-biru italic"> {{ $tenten->created_at->diffForHumans() }} </span>
+                                    </div>
+                                    <h2 class="font-semibold text-lg leading-snug">{{ $tenten->title }}</h2>
+                                </div>     
+                            </a>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
     @endguest
 
     @auth
@@ -124,16 +128,16 @@
                     <table class="w-full border-collapse">
                         <thead class="bg-biru text-white">
                             <tr>
-                                <th class="py-3 px-4 text-center">No</th>
-                                <th class="py-3 px-4 text-center">News</th>
-                                <th class="py-3 px-4 text-center">Description</th>
-                                <th class="py-3 px-4 text-center">Action</th>
+                                <th class="py-3 px-4 text-center font-medium">No</th>
+                                <th class="py-3 px-4 text-center font-medium">News</th>
+                                <th class="py-3 px-4 text-center font-medium">Description</th>
+                                <th class="py-3 px-4 text-center font-medium">Action</th>
                             </tr>
                         </thead>
                         <tbody class="text-blue-700">
                             @foreach ($news as $n)
                             <tr class="border-t">
-                                <td class="py-3 px-4">{{ $n -> id }}</td>
+                                <td class="py-3 px-4">{{ $loop -> iteration }}</td>
                                 <td class="py-3 px-4">{{ $n -> title }}</td>
                                 <td class="py-3 px-4 text-sm">{{ Str::limit(strip_tags($n-> description ), 120, '...') }}</td>
                                 <td class="py-3 px-4 flex space-x-2">

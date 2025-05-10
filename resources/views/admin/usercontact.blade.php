@@ -34,7 +34,7 @@
                     <tbody class="text-blue-700">
                         @foreach ($form as $f)
                         <tr class="border-t text-center">
-                            <td class="py-3 px-4">{{ $f -> id }}</td>
+                            <td class="py-3 px-4">{{ $loop -> iteration }}</td>
                             <td class="py-3 px-4">{{ $f -> name }}</td>
                             <td class="py-3 px-4">{{ $f -> email }}</td>
                             <td class="py-3 px-4">{{ $f -> phone }}</td>

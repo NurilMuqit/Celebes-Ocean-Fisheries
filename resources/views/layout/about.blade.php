@@ -67,29 +67,29 @@
     {{-- Our Key Features --}}
     <section class="flex items-center justify-center">
         <div class="py-10 px-4">
-            <h2 class="text-xl font-semibold my-5 text-center text-biru">Our Key Features</h2>
+            <h2 class="text-xl font-bold my-5 text-center text-biru">Our Key Features</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 m-5 text-semibold text-biru mx-auto justify-center">
-                <div class="bg-white border-biru border-2 rounded-md px-5 py-2 w-60">
+                <div class="bg-white border-biru border-2 rounded-md px-5 py-2 w-60 shadow-lg">
                     <h2 class="font-bold mb-2 text-lg">Integrity</h2>
                     <p class="mb-3">Integrity means telling the truth, keeping our word, and treating others with fairness
                         and respect.
                         Integrity is one of our most cherished assets. It must not be compromised.</p>
                 </div>
-                <div class="bg-white border-biru border-2 rounded-md px-5 py-2 w-60">
+                <div class="bg-white border-biru border-2 rounded-md px-5 py-2 w-60 shadow-lg">
                     <h2 class="font-bold mb-2 text-lg">Quality</h2>
                     <p class="mb-3">Quality is exhibited in many ways by selling and supporting products and services that
                         delight
                         customers, establishing a work environment, and delivering financial results that meet investor
                         expectations.</p>
                 </div>
-                <div class="bg-white border-biru border-2 rounded-md px-5 py-2 w-60">
+                <div class="bg-white border-biru border-2 rounded-md px-5 py-2 w-60 shadow-lg">
                     <h2 class="font-bold mb-2 text-lg">Commitment</h2>
                     <p class="mb-3">Commitment is important where we will continue to provide the best to our customers
                         and investors all
                         the time. Our opportunity to serve should be viewed as a privilege that is not to be taken for
                         granted.</p>
                 </div>
-                <div class="bg-white border-biru border-2 rounded-md px-5 py-2 w-60">
+                <div class="bg-white border-biru border-2 rounded-md px-5 py-2 w-60 shadow-lg">
                     <h2 class="font-bold mb-2 text-lg">Innovation</h2>
                     <p class="mb-3">Innovation means inventing, designing, and developing products and services that have
                         high appeal in

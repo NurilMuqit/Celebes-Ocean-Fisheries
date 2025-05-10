@@ -21,31 +21,37 @@
     <section id="products" class="py-20">
         <div class="container mx-auto text-center">
 
-            <h1 class="text-biru font-bold text-3xl mb-5 text-shadow-xl">Products</h1>
+            <h1 class="text-biru font-bold text-xl mb-5 text-shadow-md">Products</h1>
             <p class="text-biru text-lg mb-5 max-w-7xl mx-auto">We provide fresh and frozen fishery products <br>
                 All of
                 our frozen and fresh fishery products are <b>caught fresh</b> from the ocean</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 m-5">
-                @foreach ($products as $product)
+                @if ($products->isEmpty())
+                    <div class="col-span-3 text-center">
+                        <p class="text-center text-gray-500 py-10">No products available.</p>
+                    </div>
+                @else
+                    @foreach ($products as $product)
                     <div class="rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out">
                         <img src="{{ asset('storage/' . $product->product_image) }}" alt="{{ $product->product_name }}"
                             class="object-cover rounded-lg w-full h-48 ">
                         <h1 class="text-biru text-lg mt-4 text-center">{{ $product->product_name }}</h1>
                     </div>                    
-                @endforeach
+                    @endforeach
             </div>
-            <div class="mt-10">
-                <a href="{{ route('product') }}"
-                    class="bg-biru text-putihsusu shadow-md  font-bold border border-putihsusu rounded-md py-2 px-11 hover:bg-blue-500">
-                    View All Products
-                </a>
-            </div>
+                <div class="mt-10">
+                    <a href="{{ route('product') }}"
+                        class="bg-biru text-putihsusu shadow-md  font-bold border border-putihsusu rounded-md py-2 px-11 hover:bg-blue-500">
+                        View All Products
+                    </a>
+                </div>
+                @endif
         </div>
     </section>
 
     {{-- About Us --}}
-    <section id="about" class="">
+    <section id="about" class="py-10">
         <div class="flex items-center space-x-2 mb-2">
             <hr class="flex-grow border-t border-biru">
             <h2 class="text-lg md:text-xl font-bold text-biru whitespace-nowrap">Why Celebes Ocean Fisheries?</h2>
@@ -65,7 +71,7 @@
 
     {{-- contact --}}
     <section id="contact">
-        <div class="max-w-4xl m-20 my-10 px-4">
+        <div class="max-w-4xl m-20 my-10 px-4 py-10">
             <h2 class="text-xl font-bold text-biru">Be Our Partner in Your Country</h2>
             <p class="text-biru mb-6 italic">Please contact us to know more about our company, products, and sample
                 requests

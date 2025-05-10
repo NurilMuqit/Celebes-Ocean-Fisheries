@@ -69,7 +69,7 @@ class NewsController extends Controller
                 'image' => $request->file('image')->store('images', 'public'),
             ]);
     
-            return back()
+            return redirect()->route('news')
             ->with('modal_type', 'success')
             ->with('modal_title', 'Saved!')
             ->with('message', 'News has been successfully added!');
@@ -126,7 +126,7 @@ class NewsController extends Controller
             $news-> description = $request->input('description');
             $news-> save();
     
-            return  redirect()->route('news.edit', $slug)
+            return  redirect()->route('news')
             ->with('modal_type', 'success')
             ->with('modal_title', 'Saved!')
             ->with('message', 'News has been successfully updated!');

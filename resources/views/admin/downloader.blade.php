@@ -8,7 +8,13 @@
     <section class="p-7">
         <div class="flex items-center justify-between ml-6">
             <div class="text-biru flex">
-                <h2 class="font-bold text-xl">View the Downloader</h2>
+                <a class="text-biru font-bold text-shadow-md text-lg flex" onclick="window.location.href='/about'"><svg
+                    class="w-6 h-6 text-biru hover:text-neutral-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m15 19-7-7 7-7" />
+                </svg>
+                Downloader</a>
             </div>
             <div class="flex items-center bg-white rounded-lg shadow-lg overflow-hidden w-1/3 mr-6">
                 <input type="text"
@@ -31,19 +37,19 @@
             <table class="w-full border-collapse">
                 <thead class="bg-biru text-white">
                     <tr>
-                        <th class="py-3 px-4 text-center">No</th>
-                        <th class="py-3 px-4 text-center">Name</th>
-                        <th class="py-3 px-4 text-center">Phone Number</th>
-                        <th class="py-3 px-4 text-center">Email</th>
-                        <th class="py-3 px-4 text-center">Company</th>
-                        <th class="py-3 px-4 text-center">Action</th>
+                        <th class="py-3 px-4 text-center font-medium">No</th>
+                        <th class="py-3 px-4 text-center font-medium">Name</th>
+                        <th class="py-3 px-4 text-center font-medium">Phone Number</th>
+                        <th class="py-3 px-4 text-center font-medium">Email</th>
+                        <th class="py-3 px-4 text-center font-medium">Company</th>
+                        <th class="py-3 px-4 text-center font-medium">Action</th>
                     </tr>
                 </thead>
                 <tbody class="text-blue-700">
 
                     @foreach ($downloader as $d)
                     <tr class="border-t">
-                        <td class="py-3 px-4 text-center">{{ $d -> id }}</td>
+                        <td class="py-3 px-4 text-center">{{ $loop -> iteration }}</td>
                         <td class="py-3 px-4 text-center">{{ $d -> name }}</td>
                         <td class="py-3 px-4 text-center">{{ $d -> phone_number }}</td>
                         <td class="py-3 px-4 text-center">{{ $d -> email }}</td>

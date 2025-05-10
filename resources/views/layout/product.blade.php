@@ -68,16 +68,16 @@
                     <table class="w-full border-collapse">
                         <thead class="bg-biru text-white">
                             <tr>
-                                <th class="py-3 px-4 text-center">No</th>
-                                <th class="py-3 px-4 text-center">Product</th>
-                                <th class="py-3 px-4 text-center">Description</th>
-                                <th class="py-3 px-4 text-center">Action</th>
+                                <th class="py-3 px-4 text-center font-medium">No</th>
+                                <th class="py-3 px-4 text-center font-medium">Product</th>
+                                <th class="py-3 px-4 text-center font-medium">Description</th>
+                                <th class="py-3 px-4 text-center font-medium">Action</th>
                             </tr>
                         </thead>
                         <tbody class="text-blue-700">
                             @foreach ($products as $product )
                             <tr class="border-t">
-                                <td class="py-3 px-4 text-center">{{ $product-> id }}</td>
+                                <td class="py-3 px-4 text-center">{{ $loop-> iteration }}</td>
                                 <td class="py-3 px-4 text-center">{{ $product-> product_name }}</td>
                                 <td class="py-3 px-4 text-center">{{ $product-> product_description }}</td>
                                 <td class="py-3 px-4 flex space-x-2 justify-center">

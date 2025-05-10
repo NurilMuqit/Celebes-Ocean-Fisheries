@@ -20,7 +20,7 @@
                 <p class="font-bold">{{ $news -> user -> name ?? 'Unknown' }}</p>
                 <p class="italic">{{ $news-> created_at -> format('d-M-Y') }}</p>
             </div>
-            <img src="{{ asset('storage/' . $news->image) }}" class="w-full h-64  rounded-lg my-5"></img>
+            <img src="{{ asset('storage/' . $news->image) }}" class="w-full h-64  rounded-lg my-5 object-cover"></img>
             <div class="text-base leading-relaxed text-justify trix-content">
                 <p class="text-justify">{!! $news -> description !!}</p>
             </div>
