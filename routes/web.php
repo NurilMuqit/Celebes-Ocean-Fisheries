@@ -9,7 +9,6 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DownloaderController;
 
 Route::middleware('auth')->group(function () {
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     // Product routes
     Route::get('/product/add', [ProductController::class, 'index2'])->name('product.add');
     Route::post('/product/add', [ProductController::class, 'add_product'])->name('product.add.post');
