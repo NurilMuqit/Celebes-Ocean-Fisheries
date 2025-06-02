@@ -29,8 +29,9 @@
                     class="w-full p-2 border border-biru rounded-md mt-1 focus:border-blue-600 focus:ring focus:ring-blue-500 outline-none">
 
                 <label class="text-biru italic mt-4">Description</label>
-                <textarea placeholder="ex : Chicken is an evolution of dinosaur" name="product_description" 
-                    class="w-full p-2 border border-biru rounded-md mt-1 h-36 focus:border-blue-600 focus:ring focus:ring-blue-500 outline-none">{{ old('product_description', $product-> product_description) }}</textarea>
+                <input id="product_description" type="hidden" name="product_description" value="{{ $product -> product_description }}">
+                <trix-editor input="product_description"
+                    class="trix-content mt-1 border border-biru rounded-md h-48 overflow-y-auto"></trix-editor>
             </div>
 
             <div class="flex flex-col">

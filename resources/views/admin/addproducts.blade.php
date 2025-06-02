@@ -26,8 +26,9 @@
                 <input type="text" placeholder="ex : Fish" name="product_name" value="{{ old('product_name') }}"
                     class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1">
                 <label class="block text-biru italic mt-4">Description</label>
-                <textarea placeholder="ex : Fish is a cat but live in sea" name="product_description"
-                    class="w-full p-2 border border-biru focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-md mt-1 h-56">{{ old('product_description') }}</textarea>
+                <input id="product_description" type="hidden" name="product_description" value="{{ old('product_description') }}">
+                <trix-editor input="product_description"
+                    class="trix-content mt-1 border border-biru rounded-md h-48 overflow-y-auto"></trix-editor>
             </div>
             <div>
                 <label class="block text-biru italic">Product Image</label>

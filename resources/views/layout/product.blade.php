@@ -31,17 +31,42 @@
     {{-- products --}}
     @guest
         @if ($products->isNotEmpty())
-            <section class="px-20 pb-10 pt-4">
-                <div class="grid grid-cols-3 gap-20">
-                    @foreach ($products as $product)
-                    <div class="relative rounded-lg p-4 h-60 w-text-center hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
-                            <img src="{{ asset('storage/' . $product->product_image) }}" alt="{{ $product->product_name }}"
-                                class="w-full h-full object-cover rounded-lg">                    
-                        <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru font-bold">{{ $product-> product_name }}</p>
+        <section class="px-20 pb-10 pt-4">
+            <div class="grid grid-cols-3 gap-20">
+                @foreach ($products as $product)
+                <div class="group relative rounded-lg p-4 h-60 w-full text-center hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+            
+                    <img src="{{ asset('storage/' . $product->product_image) }}" alt="{{ $product->product_name }}"
+                        class="w-full h-full object-cover rounded-lg">
+
+                    <p class="absolute bottom-[-30px] left-1/2 transform -translate-x-1/2 text-biru font-bold">
+                        {{ $product->product_name }}
+                    </p>
+
+                    <div class="absolute top-0 left-0 w-full bg-white rounded-lg p-4 shadow-lg z-10
+                                opacity-0 invisible scale-95 translate-y-2
+                                group-hover:opacity-100 group-hover:visible group-hover:scale-100 group-hover:translate-y-0
+                                transition-all duration-300 ease-in-out
+                                flex flex-col items-center
+                                max-w-full">
+                                
+                        <h3 class="text-biru font-bold text-lg text-center">{{ $product->product_name }}</h3>
+
+                        <img src="{{ asset('storage/' . $product->product_image) }}" alt="{{ $product->product_name }}"
+                            class="w-40 h-40 object-cover rounded mb-2 shadow-md">
+
+                        
+                        <div class="trix-content text-gray-700 text-sm text-center mt-1">
+                            {!! $product->product_description !!}
+                        </div>
+
                     </div>
-                    @endforeach
+
                 </div>
-            </section>
+                @endforeach
+            </div>
+        </section>
+
         @else
             <section class="text-center text-gray-500 py-10">
                 <p>No products available.</p>
@@ -79,7 +104,7 @@
                             <tr class="border-t">
                                 <td class="py-3 px-4 text-center">{{ $loop-> iteration }}</td>
                                 <td class="py-3 px-4 text-center">{{ $product-> product_name }}</td>
-                                <td class="py-3 px-4 text-center">{{ $product-> product_description }}</td>
+                                <td class="py-3 px-4 text-center">{{ Str::limit(strip_tags($product-> product_description ), 30, '...') }}</td>
                                 <td class="py-3 px-4 flex space-x-2 justify-center">
                                     <a class="text-blue-500" href="{{ route('product.edit', ['product_slug'=> $product-> product_slug ] ) }}">&#9998;</a>
                                 <form action="{{ route('product.delete', ['product_slug'=> $product-> product_slug ] ) }}" method="POST" style="display:inline;">

@@ -9,12 +9,12 @@
             <h1 class="font-bold text-biru text-2xl mb-5 ml-4 text-center lg:text-left">About Us</h1>
             <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center">
                 <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0">
-                    <img src="{{ asset('images/pabrik2.png') }}" alt="pabrik2.png" class="w-full h-60 lg:w-4/5 lg:h-64 rounded-md shadow-xl"></img>
+                    <img src="{{ asset('images/pabrik2.png') }}" alt="pabrik2.png" class="w-full h-60 lg:w-4/5 lg:h-64 rounded-md shadow-xl object-cover"></img>
                 </div>
                 <div class="lg:w-1/2 w-full text-biru lg:pl-10 mr-10 ">
                     <h2 class="text-xl font-bold mb-4">Who Are We?</h2>
                     <p class="mb-4">A Global Seafood Processor Expert & Exporter based in Indonesia</p>
-                    <p class="mb-4">PT. Celebes Ocean Fisheries company are based in Ambon, Maluku and focused on providing
+                    <p class="mb-4">PT. Celebes Ocean Fisheries company are based in Bantaeng, South Sulawesi and focused on providing
                         High Quality And Fresh Fishery Products</p>
                     <p>Our company routinely sends frozen seafood products such as Octopus, Cuttlefish, Loligo Squid, Parrot
                         Fish, Tilapia, Yellowfin Baby Tuna, Skipjack, etc. to America, Mexico, Korea, Thailand, and
@@ -104,7 +104,7 @@
         <div class="py-10 px-4">
             <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center">
                 <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0">
-                    <img src="{{ asset('images/pegawai.png') }}" alt="pegawai.png" class="w-full h-60 lg:w-3/5 lg:h-64 rounded-md shadow-xl"></img>
+                    <img src="{{ asset('images/pegawai.png') }}" alt="pegawai.png" class="w-full h-60 lg:w-3/5 lg:h-64 rounded-md shadow-xl object-cover"></img>
                 </div>
                 <div class="lg:w-1/2 w-full text-biru lg:pl-10 mr-10 justify-center">
                     <h2 class="text-xl font-bold mb-4">Our Service</h2>
