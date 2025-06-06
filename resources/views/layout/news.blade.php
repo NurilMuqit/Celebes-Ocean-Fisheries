@@ -56,7 +56,7 @@
         {{-- weekly update --}}
         @if ($threeLatestNews->isNotEmpty())
             <section>
-                <div class="max-w-7xl mx-auto p-6 mt-28 text-biru">
+                <div class="max-w-7xl mx-auto p-6 mt-5 text-biru">
                     <h1 class="text-center text-2xl font-bold mb-6 ">Weekly Update</h1>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -81,7 +81,7 @@
         {{-- Articles --}}
         @if ($tenFirstNews->isNotEmpty())
             <section>
-                <div class="max-w-7xl mx-auto mb-20 mt-10 text-biru">
+                <div class="max-w-7xl mx-auto mb-20 mt-5 text-biru">
                     <div class="flex justify-between items-center">
                         <h2 class="text-2xl font-bold">Articles</h2>
                         <a href="{{ route('news.all') }}" class="text-shadow-lg italic flex">See All <svg class="w-6 h-6 text-biru"
@@ -137,7 +137,7 @@
                         <tbody class="text-blue-700">
                             @foreach ($news as $n)
                             <tr class="border-t">
-                                <td class="py-3 px-4">{{ $loop -> iteration }}</td>
+                                <td class="py-3 px-4">{{ $news->firstItem() + $loop->index }}</td>
                                 <td class="py-3 px-4">{{ $n -> title }}</td>
                                 <td class="py-3 px-4 text-sm">{{ Str::limit(strip_tags($n-> description ), 120, '...') }}</td>
                                 <td class="py-3 px-4 flex space-x-2">
@@ -153,6 +153,12 @@
                         </tbody>
                     </table>
                 </div>
+
+                {{-- pagination --}}
+                <div class="mt-4">
+                    {{ $news->links() }}
+                </div>
+
             </div>
         </section>
 

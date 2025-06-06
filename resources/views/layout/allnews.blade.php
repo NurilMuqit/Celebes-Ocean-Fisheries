@@ -36,7 +36,7 @@
         <div class="max-w-5xl mx-auto mb-10">
             <div class="space-y-6">
                 @foreach ($news as $n)
-                    <a href="{{ route('news.show', $n->id) }}" class="flex p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                    <a href="{{ route('news.show', ['news_slug' => $n->news_slug]) }}" class="flex p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
                         <img src="{{ asset('storage/' . $n->image) }}" class="w-1/4 h-32 rounded-md object-cover"></img>
                         <div class="w-3/4 pl-4">
                             <h2 class="font-bold text-lg text-biru">{{ $n->title }}</h2>
@@ -51,4 +51,10 @@
             </div>
         </div>
     </section>
+    
+    {{-- pagination --}}
+    <div class="mt-4">
+        {{ $news->links() }}
+    </div>
+
 @endsection()

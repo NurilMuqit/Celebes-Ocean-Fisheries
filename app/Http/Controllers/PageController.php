@@ -19,7 +19,7 @@ class PageController extends Controller
     }
     public function index2()
     {   
-        $form = Form::all();
+        $form = Form::paginate(10);
         return view('admin.usercontact', compact('form'));
     }
     

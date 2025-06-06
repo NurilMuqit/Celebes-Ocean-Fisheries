@@ -49,7 +49,7 @@
 
                     @foreach ($downloader as $d)
                     <tr class="border-t">
-                        <td class="py-3 px-4 text-center">{{ $loop -> iteration }}</td>
+                        <td class="py-3 px-4 text-center">{{ $downloader->firstItem() + $loop->index }}</td>
                         <td class="py-3 px-4 text-center">{{ $d -> name }}</td>
                         <td class="py-3 px-4 text-center">{{ $d -> phone_number }}</td>
                         <td class="py-3 px-4 text-center">{{ $d -> email }}</td>
@@ -63,6 +63,12 @@
                 </tbody>
             </table>
         </div>
+
+        {{-- pagination --}}
+        <div class="mt-4">
+            {{ $downloader->links() }}
+        </div>
+
     </section>
 
 @endsection

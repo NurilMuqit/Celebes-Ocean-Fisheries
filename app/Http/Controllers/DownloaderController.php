@@ -15,7 +15,7 @@ class DownloaderController extends Controller
      */
     public function index()
     {   
-        $downloader =Downloader::all();
+        $downloader =Downloader::paginate(10);
         return view('admin.downloader', compact('downloader'));
     }  
 

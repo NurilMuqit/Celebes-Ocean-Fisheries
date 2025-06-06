@@ -16,7 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {   
-        $news = News::all();
+        $news = News::paginate(10);
         $latestNews = News::latest()->first();
         $threeLatestNews = News::latest()->take(3)->get();
         $tenFirstNews = News::inRandomOrder()->take(10)->get();
@@ -25,7 +25,7 @@ class NewsController extends Controller
 
     public function index2()
     {   
-        $news = News::all();
+        $news = News::paginate(10);
         return view('layout.allnews', compact('news'));
     }
     public function index3($news_slug)

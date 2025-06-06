@@ -30,6 +30,9 @@
     {{-- footer --}}
     <x-footer />
 
+    {{-- WhatsApp Popup --}}
+    <livewire:whats-app-popup />
+
 </body>
 
 </html>

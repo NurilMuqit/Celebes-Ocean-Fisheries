@@ -31,7 +31,7 @@
     {{-- products --}}
     @guest
         @if ($products->isNotEmpty())
-        <section class="px-20 pb-10 pt-4">
+        <section class="px-20 pb-10 pt-4 mb-10">
             <div class="grid grid-cols-3 gap-20">
                 @foreach ($products as $product)
                 <div class="group relative rounded-lg p-4 h-60 w-full text-center hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
@@ -49,14 +49,14 @@
                                 transition-all duration-300 ease-in-out
                                 flex flex-col items-center
                                 max-w-full">
-                                
+
                         <h3 class="text-biru font-bold text-lg text-center">{{ $product->product_name }}</h3>
 
                         <img src="{{ asset('storage/' . $product->product_image) }}" alt="{{ $product->product_name }}"
                             class="w-40 h-40 object-cover rounded mb-2 shadow-md">
 
                         
-                        <div class="trix-content text-gray-700 text-sm text-center mt-1">
+                        <div class="trix-content text-biru text-sm font-medium text-center mt-1">
                             {!! $product->product_description !!}
                         </div>
 
@@ -100,9 +100,9 @@
                             </tr>
                         </thead>
                         <tbody class="text-blue-700">
-                            @foreach ($products as $product )
+                            @foreach ($productsPaginate as $product )
                             <tr class="border-t">
-                                <td class="py-3 px-4 text-center">{{ $loop-> iteration }}</td>
+                                <td class="py-3 px-4 text-center">{{ $productsPaginate->firstItem() + $loop->index }}</td>
                                 <td class="py-3 px-4 text-center">{{ $product-> product_name }}</td>
                                 <td class="py-3 px-4 text-center">{{ Str::limit(strip_tags($product-> product_description ), 30, '...') }}</td>
                                 <td class="py-3 px-4 flex space-x-2 justify-center">
@@ -118,6 +118,12 @@
                         </tbody>
                     </table>
                 </div>
+
+                {{-- pagination --}}
+                <div class="mt-4">
+                    {{ $productsPaginate->links() }}
+                </div>
+
             </div>
         </section>
 
