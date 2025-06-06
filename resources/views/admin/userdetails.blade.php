@@ -24,7 +24,7 @@
             <span>{{ $form->subject }}</span>
         </div>
         <div>
-            <span class="font-semibold">Your Message:</span>
+            <span class="font-semibold">Message:</span>
             <div class="mt-2 p-4 bg-gray-100 rounded text-gray-700">
                 {{ $form->message }}
             </div>

@@ -12,7 +12,7 @@ class DownloadProfile extends Component
 
     protected $rules = [
         'name' => 'required|string',
-        'phone_number' => 'required|string',
+        'phone_number' => 'required|regex:/^62[0-9]{7,14}$/',
         'email' => 'required|email',
         'company' => 'required|string'
     ];

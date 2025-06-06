@@ -83,8 +83,11 @@
                         class="w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <input type="email" placeholder="Email" name="email"
                         class="w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <input type="text" placeholder="Phone Number" name="phone"
-                        class="w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input type="text" placeholder="Phone Number (ex: 6281234567890)" name="phone"
+                        pattern="^62[0-9]{7,14}$"
+                        class="w-full p-3 rounded-md shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        required
+                        title="number only, start with 62 without +, example: 6281234567890">  
                 </div>
 
                 <div class="md:col-span-2 space-y-4">

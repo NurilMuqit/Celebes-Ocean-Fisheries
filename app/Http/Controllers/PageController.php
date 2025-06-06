@@ -40,7 +40,7 @@ class PageController extends Controller
             $request->validate([
                 'name' => 'required',
                 'email' => 'required',
-                'phone' => 'required',
+                'phone'   => ['required', 'regex:/^62[0-9]{7,14}$/'],
                 'subject' => 'required',
                 'message' => 'required',
             ]);
@@ -98,6 +98,12 @@ class PageController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $form = Form::findOrFail($id);
+        $form->delete();
+
+        return back()
+        ->with('modal_type', 'success')
+        ->with('modal_title', 'Deleted!')
+        ->with('message', 'Data has been successfully deleted.');
     }
 }

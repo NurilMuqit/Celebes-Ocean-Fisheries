@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
     <script src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
 
+    @livewireStyles
+
 </head>
 
 <body class="font-montserrat bg-putihsusu flex flex-col min-h-screen">
@@ -32,6 +34,8 @@
 
     {{-- WhatsApp Popup --}}
     <livewire:whats-app-popup />
+
+    @livewireScripts
 
 </body>
 

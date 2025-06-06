@@ -39,9 +39,14 @@
                     <input type="text" wire:model.defer="name" placeholder="Name"
                         class="w-full p-2 shadow-lg rounded focus:outline-none focus:ring focus:ring-blue-400" required>
     
-                    <input type="text" wire:model.defer="phone_number" placeholder="Phone Number"
-                        class="w-full p-2 shadow-lg rounded focus:outline-none focus:ring focus:ring-blue-400" required>
-    
+                    <input type="text"
+                        wire:model.defer="phone_number"
+                        placeholder="Phone Number (ex: 6281234567890)"
+                        pattern="^62[0-9]{7,14}$"
+                        class="w-full p-2 shadow-lg rounded focus:outline-none focus:ring focus:ring-blue-400"
+                        required
+                        title="Start with 62, without +, no space, example: 6281234567890">
+
                     <input type="email" wire:model.defer="email" placeholder="Email"
                         class="w-full p-2 shadow-lg rounded focus:outline-none focus:ring focus:ring-blue-400" required>
     
@@ -61,7 +66,12 @@
 
     {{-- Flash message testing --}}
     @if (session()->has('message'))
-    <div class="fixed bottom-4 right-4 bg-green-500 text-white p-3 rounded shadow-lg">
+    <div 
+        x-data="{ show: true }"
+        x-init="setTimeout(() => show = false, 3000)"
+        x-show="show"
+        x-transition
+        class="fixed bottom-4 left-4 bg-green-500 text-white p-3 rounded shadow-lg">
         {{ session('message') }}
     </div>
     @endif

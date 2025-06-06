@@ -73,6 +73,12 @@ class DownloaderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $Downloader = Downloader::findOrFail($id);
+        $Downloader->delete();
+
+        return back()
+            ->with('modal_type', 'success')
+            ->with('modal_title', 'Deleted!')
+            ->with('message', 'Data has been successfully deleted!');
     }
 }

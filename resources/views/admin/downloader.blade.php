@@ -55,14 +55,23 @@
                         <td class="py-3 px-4 text-center">{{ $d -> email }}</td>
                         <td class="py-3 px-4 text-center">{{ $d -> company }}</td>
                         <td class="py-3 px-4 flex space-x-2 justify-center">
-                            <button class="text-red-500">&#9993;</button>
+                            <a href="mailto:{{ $d -> email }}" class="text-red-500">&#9993;</a>
+                            <a href="https://wa.me/{{ ltrim($d->phone_number) }}" class="text-red-500">&#9742;</a>
+                            <form action="{{ route('downloader.delete', $d->id) }}" method="POST" onsubmit="return confirm('Yakin ingin hapus data ini?')" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-500" title="Delete">&#128465;</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
-                    
+
                 </tbody>
             </table>
         </div>
+
+        {{-- Modal --}}
+        <x-modal/>
 
         {{-- pagination --}}
         <div class="mt-4">
