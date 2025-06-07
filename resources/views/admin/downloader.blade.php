@@ -33,7 +33,7 @@
 
     {{-- Downloader Data --}}
     <section>
-        <div class="bg-white rounded-lg shadow-xl overflow-hidden mx-20 my-10">
+        <div class="bg-white rounded-lg shadow-xl overflow-hidden mx-20 my-10" x-data="modalDelete()">
             <table class="w-full border-collapse">
                 <thead class="bg-biru text-white">
                     <tr>
@@ -55,28 +55,55 @@
                         <td class="py-3 px-4 text-center">{{ $d -> email }}</td>
                         <td class="py-3 px-4 text-center">{{ $d -> company }}</td>
                         <td class="py-3 px-4 flex space-x-2 justify-center">
-                            <a href="mailto:{{ $d -> email }}" class="text-red-500">&#9993;</a>
-                            <a href="https://wa.me/{{ ltrim($d->phone_number) }}" class="text-red-500">&#9742;</a>
-                            <form action="{{ route('downloader.delete', $d->id) }}" method="POST" onsubmit="return confirm('Yakin ingin hapus data ini?')" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="text-red-500" title="Delete">&#128465;</button>
-                            </form>
+                            <a href="mailto:{{ $d -> email }}" title="Email" class="text-red-500">&#9993;</a>
+                            <a href="https://wa.me/{{ ltrim($d->phone_number) }}" title="Whatsapp" class="text-red-500">&#9742;</a>
+                            <button type="button" class="text-red-500" title="Delete" @click="openModal('{{ route('downloader.delete', $d->id) }}', '{{ $d->name }}')">&#128465;</button>
                         </td>
                     </tr>
                     @endforeach
-
                 </tbody>
             </table>
-        </div>
 
-        {{-- Modal --}}
-        <x-modal/>
+            {{-- modal delete --}}
+            <div x-show="show" x-cloak class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
+                    <h2 class="text-lg font-bold mb-4 text-center text-red-900">Delete This Downloader Data?</h2>
+                    <p class="text-center text-red-500 italic font-medium">This action cannot be undone. Are you sure want to delete this downloader data?</p>
+                    <div class="mt-6 flex justify-end space-x-5 justify-center">
+                        <form :action="deleteUrl" method="POST" class="inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="px-10 py-1 font-bold shadow-xl text-red-900 border border-red-900 rounded-lg hover:bg-red-600 hover:text-white">Delete</button>
+                        </form>
+                        <button @click="show = false" class="px-10 py-1 font-bold shadow-xl border border-biru text-biru rounded-lg hover:bg-biru hover:text-putihsusu">Cancel</button>
+                    </div>
+                </div>
+            </div>
+                    
+            {{-- script for modal delete --}}
+            <script>
+            function modalDelete() {
+                return {
+                    show: false,
+                    itemName: '',
+                    deleteUrl: '',
+                    openModal(url, name) {
+                        this.deleteUrl = url;
+                        this.itemName = name;
+                        this.show = true;
+                    }
+                }
+            }
+            </script>
+        </div>
 
         {{-- pagination --}}
         <div class="mt-4">
             {{ $downloader->links() }}
         </div>
+
+        {{-- Modal --}}
+        <x-modal/>
 
     </section>
 

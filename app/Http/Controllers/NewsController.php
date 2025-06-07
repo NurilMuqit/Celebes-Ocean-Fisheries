@@ -154,6 +154,7 @@ class NewsController extends Controller
 
         return back()
         ->with('modal_type', 'success')
+        ->with('modal_title', 'Deleted!')
         ->with('message', 'News has been successfully deleted!');
     }
 }

@@ -124,7 +124,7 @@
                     </div>
                 </a>
 
-                <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden" x-data="modalDelete()">
                     <table class="w-full border-collapse">
                         <thead class="bg-biru text-white">
                             <tr>
@@ -142,16 +142,45 @@
                                 <td class="py-3 px-4 text-sm">{{ Str::limit(strip_tags($n-> description ), 120, '...') }}</td>
                                 <td class="py-3 px-4 flex space-x-2">
                                     <a class="text-blue-500" href="{{ route('news.edit', ['news_slug'=> $n-> news_slug ]) }}">&#9998;</a>
-                                    <form action="{{ route('news.delete', ['news_slug'=> $n-> news_slug ]) }}" method="POST" style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" onclick="return confirm('Yakin mau hapus?')">&#128465;</button>
-                                    </form>
+                                    <button type="button" @click="openModal('{{ route('news.delete', $n->news_slug) }}', '{{ $n->title }}')">&#128465;</button>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+
+                    {{-- modal delete --}}
+                    <div x-show="show" x-cloak class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                        <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
+                            <h2 class="text-lg font-bold mb-4 text-center text-red-900">Delete This News?</h2>
+                            <p class="text-center text-red-500 italic font-medium">This action cannot be undone. Are you sure want to delete this news?</p>
+                            <div class="mt-6 flex justify-end space-x-5 justify-center">
+                                <form :action="deleteUrl" method="POST" class="inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="px-10 py-1 font-bold shadow-xl text-red-900 border border-red-900 rounded-lg hover:bg-red-600 hover:text-white">Delete</button>
+                                </form>
+                                <button @click="show = false" class="px-10 py-1 font-bold shadow-xl border border-biru text-biru rounded-lg hover:bg-biru hover:text-putihsusu">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {{-- script for modal delete --}}
+                    <script>
+                    function modalDelete() {
+                        return {
+                            show: false,
+                            itemName: '',
+                            deleteUrl: '',
+                            openModal(url, name) {
+                                this.itemName = name;
+                                this.deleteUrl = url;
+                                this.show = true;
+                            }
+                        }
+                    }
+                    </script>
+
                 </div>
 
                 {{-- pagination --}}

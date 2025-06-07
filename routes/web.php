@@ -23,10 +23,12 @@ Route::middleware('auth')->group(function () {
     Route::put('/news/edit/{news_slug}', [NewsController::class, 'update'])->name('news.edit.post');
     Route::delete('/news/delete/{news_slug}', [NewsController::class, 'destroy'])->name('news.delete');
 
+    // User contact routes
     Route::get('/user/contact', [PageController::class, 'index2'])->name('user.contact');
     Route::get('/user/contact/detail/{id}', [PageController::class, 'edit'])->name('user.contact.detail');
     Route::delete('/user/contact/delete/{id}', [PageController::class, 'destroy'])->name('user.contact.delete');
 
+    // Downloader routes
     Route::get('/about/downloader',[DownloaderController::class, 'index'])->name('downloader');
     Route::delete('/about/downloader/delete/{id}', [DownloaderController::class, 'destroy'])->name('downloader.delete');
 });
