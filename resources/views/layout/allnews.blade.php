@@ -16,8 +16,8 @@
                 </button>
                 <h2 class="font-bold text-xl">News & Articles</h2>
             </div>
-            <div class="flex items-center bg-white rounded-lg shadow-lg overflow-hidden w-1/3 mr-6">
-                <input type="text"
+            <form method="GET" action="{{ route('news.all') }}" class="flex items-center bg-white rounded-lg shadow-lg overflow-hidden w-1/3 mr-6">
+                <input type="text" name="search" value="{{ request('search') }}"
                     class="p-2 w-full text-gray-700 focus:outline-none placeholder:italic placeholder:text-biru"
                     placeholder="Search">
                 <button class="p-2  text-biru hover:text-blue-500">
@@ -27,11 +27,16 @@
                             clip-rule="evenodd" />
                     </svg>
                 </button>
-            </div>
+            </form>
         </div>
     </section>
 
     {{-- all news --}}
+    @if ($news->isEmpty())
+        <div class="max-w-5xl mx-auto text-center mt-10">
+            <p class="text-biru text-lg">No news found{{ request('search') ? ' for "' . request('search') . '"' : '' }}.</p>
+        </div>
+    @else
     <section>
         <div class="max-w-5xl mx-auto mb-10">
             <div class="space-y-6">
@@ -50,7 +55,8 @@
                 @endforeach
             </div>
         </div>
-    </section>
+    </section>        
+    @endif
     
     {{-- pagination --}}
     <div class="mt-4">

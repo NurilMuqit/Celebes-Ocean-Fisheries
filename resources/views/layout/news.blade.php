@@ -4,28 +4,28 @@
 
 @section('content')
 
-    {{-- search bar --}}
-    <section class="p-7">
-        <div class="flex items-center justify-between ml-6">
-            <div class="text-biru flex">
-                <h2 class="font-bold text-xl">News & Articles</h2>
-            </div>
-            <div class="flex items-center bg-white rounded-lg shadow-lg overflow-hidden w-1/3 mr-6">
-                <input type="text"
-                    class="p-2 w-full text-gray-700 focus:outline-none placeholder:italic placeholder:text-biru"
-                    placeholder="Search">
-                <button class="p-2  text-biru hover:text-blue-500">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387zM8 14a6 6 0 100-12 6 6 0 000 12z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </section>
-
     @guest
+        {{-- search bar --}}
+        <section class="p-7">
+            <div class="flex items-center justify-between ml-6">
+                <div class="text-biru flex">
+                    <h2 class="font-bold text-xl">News & Articles</h2>
+                </div>
+                <form action="{{ route('news.all') }}" method="GET" class="flex items-center bg-white rounded-lg shadow-lg overflow-hidden w-1/3 mr-6">
+                    <input type="text" name="search" value="{{ request('search') }}"
+                        class="p-2 w-full text-gray-700 focus:outline-none placeholder:italic placeholder:text-biru"
+                        placeholder="Search">
+                    <button class="p-2  text-biru hover:text-blue-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387zM8 14a6 6 0 100-12 6 6 0 000 12z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </section>
+
         {{-- recent article --}}
         @if ($latestNews)
             <section>
@@ -112,6 +112,27 @@
     @endguest
 
     @auth
+        {{-- search bar --}}
+        <section class="p-7">
+            <div class="flex items-center justify-between ml-6">
+                <div class="text-biru flex">
+                    <h2 class="font-bold text-xl">News & Articles</h2>
+                </div>
+                <form action="{{ route('news') }}" method="GET" class="flex items-center bg-white rounded-lg shadow-lg overflow-hidden w-1/3 mr-6">
+                    <input type="text" name="search" value="{{ request('search') }}"
+                        class="p-2 w-full text-gray-700 focus:outline-none placeholder:italic placeholder:text-biru"
+                        placeholder="Search">
+                    <button class="p-2  text-biru hover:text-blue-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M12.9 14.32a8 8 0 111.414-1.414l4.387 4.387a1 1 0 01-1.414 1.414l-4.387-4.387zM8 14a6 6 0 100-12 6 6 0 000 12z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </section>
+
         <section class="flex justify-center mb-10">
             <div class="w-3/4">
                 <a href="{{ route('news.add') }}" class="inline-block" >
@@ -135,7 +156,7 @@
                             </tr>
                         </thead>
                         <tbody class="text-blue-700">
-                            @foreach ($news as $n)
+                            @forelse ($news as $n)
                             <tr class="border-t">
                                 <td class="py-3 px-4">{{ $news->firstItem() + $loop->index }}</td>
                                 <td class="py-3 px-4">{{ $n -> title }}</td>
@@ -145,7 +166,13 @@
                                     <button type="button" @click="openModal('{{ route('news.delete', $n->news_slug) }}', '{{ $n->title }}')">&#128465;</button>
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="4" class="py-6 text-center text-gray-500 italic">
+                                    No news found{{ request('search') ? ' for "' . request('search') . '"' : '' }}.
+                                </td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
 

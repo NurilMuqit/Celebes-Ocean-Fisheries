@@ -14,18 +14,36 @@ class NewsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {   
-        $news = News::paginate(10);
+        $search = $request->query('search');
+
+        $news = News::when($search, function ($query, $search) {
+                $query->where('title', 'like', "%{$search}%")
+                    ->orWhere('description', 'like', "%{$search}%");
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(10)
+            ->withQueryString();
+
         $latestNews = News::latest()->first();
         $threeLatestNews = News::latest()->take(3)->get();
         $tenFirstNews = News::inRandomOrder()->take(10)->get();
         return view('layout.news', compact('news', 'latestNews', 'threeLatestNews', 'tenFirstNews'));
     }
 
-    public function index2()
+    public function index2(Request $request)
     {   
-        $news = News::paginate(10);
+        $search = $request->query('search');
+
+        $news = News::when($search, function ($query, $search) {
+                $query->where('title', 'like', "%{$search}%")
+                    ->orWhere('description', 'like', "%{$search}%");
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(10)
+            ->withQueryString();
+
         return view('layout.allnews', compact('news'));
     }
     public function index3($news_slug)
