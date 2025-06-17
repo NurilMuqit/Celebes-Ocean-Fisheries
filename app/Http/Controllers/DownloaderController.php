@@ -13,11 +13,18 @@ class DownloaderController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {   
-        $downloader =Downloader::paginate(10);
-        return view('admin.downloader', compact('downloader'));
-    }  
+    public function index(Request $request)
+    {
+        $search = $request->query('search');
+        $downloaderPaginate = Downloader::when($search, function ($query, $search) {
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%");
+            })
+            ->paginate(10)
+            ->withQueryString();
+
+        return view('admin.downloader', compact('downloaderPaginate'));
+    }
 
     public function companyProfile(): StreamedResponse
     {
