@@ -28,8 +28,8 @@
     <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
         <div class="bg-white py-6 px-4 sm:px-10 rounded-lg shadow-lg w-11/12 max-w-md text-center mx-auto">
             <h2 class="text-lg font-bold mb-1 text-shadow-md text-red-800">Logout from this session?</h2>
-            <p class="font-normal italic">Are you sure want to logout?</p>                            
-            <p class="font-normal italic mb-4">You can login with your email and password</p>
+            <p class="font-normal italic text-biru">Are you sure want to logout?</p>                            
+            <p class="font-normal italic mb-4 text-biru">You can login with your email and password</p>
             <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-10 mt-2">
                 <button wire:click="logout"
                         class="w-full sm:w-auto px-6 py-2 bg-white text-red-800 rounded-lg border-2 border-red-800 hover:bg-red-200 drop-shadow-md font-bold transition">

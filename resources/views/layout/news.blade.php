@@ -9,9 +9,9 @@
         <section class="py-6 px-4">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div class="text-biru">
-                    <h2 class="font-bold text-xl">News & Articles</h2>
+                    <h2 class="font-bold text-xl" data-aos="fade-down">News & Articles</h2>
                 </div>
-                <form action="{{ route('news.all') }}" method="GET" class="flex items-center bg-white rounded-lg shadow-lg overflow-hidden w-full md:w-1/3">
+                <form action="{{ route('news.all') }}" method="GET" class="flex items-center bg-white rounded-lg shadow-lg overflow-hidden w-full md:w-1/3" data-aos="fade-left">
                     <input type="text" name="search" value="{{ request('search') }}"
                         class="p-2 w-full text-gray-700 focus:outline-none placeholder:italic placeholder:text-biru"
                         placeholder="Search">
@@ -32,16 +32,16 @@
                 <a href="{{ route('news.show', ['news_slug' => $latestNews->news_slug]) }}">
                     <div class="py-10 px-4 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out max-w-7xl mx-auto">
                         <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center gap-8">
-                            <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0">
+                            <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0" data-aos="fade-right">
                                 <img src="{{ asset('storage/' . $latestNews->image) }}" class="w-full max-w-md h-60 sm:h-64 rounded-md shadow-xl object-cover" alt="{{ $latestNews->title }}">
                             </div>
                             <div class="lg:w-1/2 w-full text-biru lg:pl-10">
-                                <h2 class="text-2xl font-bold mb-4">{{ $latestNews->title }}</h2>
+                                <h2 class="text-2xl font-bold mb-4" data-aos="fade-left">{{ $latestNews->title }}</h2>
                                 <div class="flex flex-wrap gap-5 text-biru">
-                                    <p class="mb-4 font-semibold">{{ $latestNews->user->name ?? 'Unknown' }}</p>
-                                    <p class="mb-4 italic">{{ $latestNews->created_at->diffForHumans() }}</p>
+                                    <p class="mb-4 font-semibold" data-aos="fade-left">{{ $latestNews->user->name ?? 'Unknown' }}</p>
+                                    <p class="mb-4 italic" data-aos="fade-left">{{ $latestNews->created_at->diffForHumans() }}</p>
                                 </div>
-                                <p>{{ Str::limit(strip_tags($latestNews->description), 300, '...') }}</p>
+                                <p data-aos="fade-up">{{ Str::limit(strip_tags($latestNews->description), 300, '...') }}</p>
                             </div>
                         </div>
                     </div>
@@ -57,17 +57,17 @@
         @if ($threeLatestNews->isNotEmpty())
             <section>
                 <div class="max-w-7xl mx-auto p-6 mt-5 text-biru">
-                    <h1 class="text-center text-2xl font-bold mb-6">Weekly Update</h1>
+                    <h1 class="text-center text-2xl font-bold mb-6" data-aos="fade-up">Weekly Update</h1>
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                         @foreach ($threeLatestNews as $weeklyUpdate)
                             <a href="{{ route('news.show', ['news_slug' => $weeklyUpdate->news_slug]) }}">
                                 <div class="p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out bg-white rounded-lg">
-                                    <img src="{{ asset('storage/' . $weeklyUpdate->image) }}" class="w-full h-48 rounded-lg mb-4 object-cover" alt="{{ $weeklyUpdate->title }}">
-                                    <div class="flex flex-wrap justify-between text-sm text-gray-500 mb-2">
+                                    <img src="{{ asset('storage/' . $weeklyUpdate->image) }}" class="w-full h-48 rounded-lg mb-4 object-cover" alt="{{ $weeklyUpdate->title }}" data-aos="fade-down">
+                                    <div class="flex flex-wrap justify-between text-sm text-gray-500 mb-2" data-aos="fade-up">
                                         <span class="text-biru font-semibold">{{ $weeklyUpdate->user->name ?? 'Unknown' }}</span>
                                         <span class="text-biru italic">{{ $weeklyUpdate->created_at->diffForHumans() }}</span>
                                     </div>
-                                    <h2 class="font-semibold text-lg leading-snug">{{ $weeklyUpdate->title }}</h2>
+                                    <h2 class="font-semibold text-lg leading-snug" data-aos="fade-left">{{ $weeklyUpdate->title }}</h2>
                                 </div>
                             </a>
                         @endforeach
@@ -81,8 +81,8 @@
             <section>
                 <div class="max-w-7xl mx-auto mb-20 mt-5 text-biru px-4">
                     <div class="flex flex-col sm:flex-row justify-between items-center gap-3">
-                        <h2 class="text-2xl font-bold">Articles</h2>
-                        <a href="{{ route('news.all') }}" class="text-shadow-lg italic flex items-center">See All
+                        <h2 class="text-2xl font-bold" data-aos="fade-up">Articles</h2>
+                        <a href="{{ route('news.all') }}" class="text-shadow-lg italic flex items-center" data-aos="fade-left">See All
                             <svg class="w-6 h-6 text-biru ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                                 viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -94,12 +94,12 @@
                         @foreach ($tenFirstNews as $tenten)
                             <a href="{{ route('news.show', ['news_slug' => $tenten->news_slug]) }}">
                                 <div class="p-4 hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out bg-white rounded-lg">
-                                    <img src="{{ asset('storage/' . $tenten->image) }}" class="w-full h-48 rounded-lg mb-4 object-cover" alt="{{ $tenten->title }}">
+                                    <img src="{{ asset('storage/' . $tenten->image) }}" class="w-full h-48 rounded-lg mb-4 object-cover" data-aos="fade-down" alt="{{ $tenten->title }}">
                                     <div class="flex flex-wrap justify-between text-sm text-gray-500 mb-2">
-                                        <span class="text-biru font-semibold">{{ $tenten->user->name ?? 'Unknown' }}</span>
-                                        <span class="text-biru italic">{{ $tenten->created_at->diffForHumans() }}</span>
+                                        <span class="text-biru font-semibold" data-aos="fade-up">{{ $tenten->user->name ?? 'Unknown' }}</span>
+                                        <span class="text-biru italic" data-aos="fade-left">{{ $tenten->created_at->diffForHumans() }}</span>
                                     </div>
-                                    <h2 class="font-semibold text-lg leading-snug">{{ $tenten->title }}</h2>
+                                    <h2 class="font-semibold text-lg leading-snug" data-aos="fade-zoom">{{ $tenten->title }}</h2>
                                 </div>
                             </a>
                         @endforeach

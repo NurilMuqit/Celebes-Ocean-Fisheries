@@ -8,6 +8,7 @@
     <title>@yield('title') - Celebes Ocean Fisheries</title>
 
     <link rel="icon" href="{{ asset('images/logopt.png') }}" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
     {{-- Tailwind --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -22,6 +23,14 @@
 
 <body class="font-montserrat bg-putihsusu flex flex-col min-h-screen">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+    AOS.init({
+        duration: 1000, // Durasi animasi (ms)
+        once: true, // Hanya animasi sekali
+    });
+    </script>
+
     {{-- header --}}
     <x-navbar />
 
@@ -33,7 +42,7 @@
     <x-footer />
 
     {{-- WhatsApp Popup --}}
-    <livewire:whats-app-popup />
+    <livewire:whats-app-pop-up />
 
     @livewireScripts
 

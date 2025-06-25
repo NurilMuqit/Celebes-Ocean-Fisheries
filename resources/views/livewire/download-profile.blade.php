@@ -1,7 +1,7 @@
 <div x-data="{ show: @entangle('showModal') }">
 
     {{-- Trigger button --}}
-    <button @click="show = true" type="button"
+    <button @click="show = true" type="button" data-aos="fade-left"
         class="flex items-center gap-2 bg-biru text-putihsusu font-bold px-6 py-2 rounded-md mt-1 hover:bg-neutral-400 transition">
         <svg class="w-5 h-5 text-putihsusu" xmlns="http://www.w3.org/2000/svg" fill="none"
             viewBox="0 0 24 24" stroke="currentColor">
@@ -10,7 +10,7 @@
         </svg>
         Company Profile
     </button>
-
+    
     {{-- Modal --}}
     <div
         x-show="show"

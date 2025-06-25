@@ -7,13 +7,13 @@
     <section class="py-6 px-4">
         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div class="text-biru">
-                <h2 class="font-bold text-xl">Products</h2>
-                <p class="italic text-sm">
+                <h2 class="font-bold text-xl" data-aos="fade-down">Products</h2>
+                <p class="italic text-sm" data-aos="fade-right">
                     We provide fresh and frozen fishery products.<br>
                     All of our frozen and fresh fishery products are <b>caught fresh</b> from the ocean.
                 </p>
             </div>
-            <form class="flex items-center bg-white rounded-lg shadow-lg overflow-hidden w-full md:w-1/3" method="GET" action="{{ route('product') }}">
+            <form class="flex items-center bg-white rounded-lg shadow-lg overflow-hidden w-full md:w-1/3" method="GET" action="{{ route('product') }}" data-aos="fade-left">
                 <input type="text" name="search" value="{{ request('search') }}"
                     class="p-2 w-full text-gray-700 focus:outline-none placeholder:italic placeholder:text-biru"
                     placeholder="Search">
@@ -32,7 +32,7 @@
     @guest
         @if ($products->isNotEmpty())
         <section class="px-4 pb-10 pt-4 mb-10">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-zoom-in">
                 @foreach ($products as $product)
                 <div class="group relative rounded-lg p-4 bg-white flex flex-col items-center hover:shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
                     <img src="{{ asset('storage/' . $product->product_image) }}" alt="{{ $product->product_name }}"
