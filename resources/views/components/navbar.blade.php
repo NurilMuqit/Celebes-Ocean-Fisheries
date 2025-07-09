@@ -1,4 +1,4 @@
-<header x-data="{ open: false }" class="relative">
+<header x-data="{ open: false }" class="relative sticky top-0 z-50 bg-white shadow-md">
     <nav class="bg-biru items-center mx-auto flex rounded-b-lg justify-between px-2">
         <div class="flex items-center">
             <a href="#">

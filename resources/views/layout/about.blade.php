@@ -127,23 +127,20 @@
                     <h2 class="text-xl font-bold" data-aos="fade-right">What Makes Us Different?</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div class="flex flex-col items-start text-center p-4 relative">
-                            <h2 class="text-4xl font-bold text-blue-300 opacity-50 italic absolute" data-aos="fade-up">01</h2>
-                            <p class="relative text-lg leading-relaxed mt-5 text-shadow-lg" data-aos="fade-zoom">Quality and Safe Shipment
+                            <h2 class="text-4xl font-bold text-blue-300 opacity-50 italic" data-aos="fade-up">01</h2>
+                            <p class="relative text-lg leading-relaxed text-shadow-lg" data-aos="fade-zoom">Quality and Safe Shipment
                                 Guarantee</p>
                         </div>
                         <div class="flex flex-col items-start text-center p-4 relative">
-                            <h2 class="text-4xl font-bold text-blue-300 opacity-50 italic absolute" data-aos="fade-up">02</h2>
-                            <p class="relative text-lg leading-relaxed mt-5 text-shadow-lg" data-aos="fade-zoom">Private Label Solutions</p>
+                            <h2 class="text-4xl font-bold text-blue-300 opacity-50 italic" data-aos="fade-up">02</h2>
+                            <p class="relative text-lg leading-relaxed text-shadow-lg" data-aos="fade-zoom">Private Label Solutions</p>
                         </div>
                         <div class="flex flex-col items-start text-center p-4 relative">
-                            <h2 class="text-4xl font-bold text-blue-300 opacity-50 italic absolute" data-aos="fade-up">03</h2>
-                            <p class="relative text-lg leading-relaxed mt-5 text-shadow-lg" data-aos="fade-zoom">World Class Service for
+                            <h2 class="text-4xl font-bold text-blue-300 opacity-50 italic" data-aos="fade-up">03</h2>
+                            <p class="relative text-lg leading-relaxed text-shadow-lg" data-aos="fade-zoom">World Class Service for
                                 Customers</p>
                         </div>
                     </div>
-                </div>
-                <div class="lg:w-1/2 w-full flex justify-center mb-6 lg:mb-0"data-aos="fade-right">
-                    <div class="bg-gray-200 w-full max-w-md h-52 sm:h-60 lg:h-64 rounded-md shadow-xl"></div>
                 </div>
             </div>
         </div>
@@ -153,12 +150,9 @@
     <section class="flex items-center justify-center">
         <div class="py-5 px-4 w-full max-w-7xl">
             <h2 class="text-xl font-bold my-5 text-center text-biru" data-aos="fade-down">Certification</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 m-2 text-biru mx-auto justify-center">
+            <div class="grid grid-cols-2 gap-8 m-2 text-biru mx-auto justify-center">
                 <div class="px-5 py-2 flex justify-center" data-aos="fade-right">
                     <img src="{{ asset('images/haccp.png') }}" alt="haccp.png" class="max-h-60 object-contain">
-                </div>
-                <div class="px-5 py-2 flex justify-center" data-aos="fade-zoom">
-                    <img src="{{ asset('images/gmp.png') }}" alt="gmp.png" class="max-h-60 object-contain">
                 </div>
                 <div class="px-5 py-2 flex justify-center" data-aos="fade-left">
                     <img src="{{ asset('images/fda.png') }}" alt="fda.png" class="max-h-60 object-contain">

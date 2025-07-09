@@ -22,13 +22,12 @@ class NewsController extends Controller
                 $query->where('title', 'like', "%{$search}%")
                     ->orWhere('description', 'like', "%{$search}%");
             })
-            ->orderBy('created_at', 'desc')
             ->paginate(10)
             ->withQueryString();
 
         $latestNews = News::latest()->first();
         $threeLatestNews = News::latest()->take(3)->get();
-        $tenFirstNews = News::inRandomOrder()->take(10)->get();
+        $tenFirstNews = News::inRandomOrder()->take(8)->get();
         return view('layout.news', compact('news', 'latestNews', 'threeLatestNews', 'tenFirstNews'));
     }
 

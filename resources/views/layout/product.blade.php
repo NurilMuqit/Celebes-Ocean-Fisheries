@@ -98,7 +98,7 @@
                                 <td class="py-3 px-2 text-center">{{ Str::limit(strip_tags($product-> product_description ), 30, '...') }}</td>
                                 <td class="py-3 px-2 flex space-x-2 justify-center">
                                     <a class="text-blue-500" href="{{ route('product.edit', ['product_slug'=> $product-> product_slug ] ) }}">&#9998;</a>
-                                    <button type="button" @click="openModal('{{ route('product.delete', $product->product_slug) }}', '{{ $product->product_name }}')">&#128465;</button>
+                                    <button type="button" @click="openModal('{{ route('product.delete', $product->product_slug) }}', @js($product->product_name))">&#128465;</button>
                                 </td>
                             </tr>
                             @empty

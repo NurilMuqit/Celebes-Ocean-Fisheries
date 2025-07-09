@@ -160,7 +160,7 @@
                                 <td class="py-3 px-2 text-sm text-center">{{ Str::limit(strip_tags($n->description), 120, '...') }}</td>
                                 <td class="py-3 px-2 flex space-x-2 justify-center">
                                     <a class="text-blue-500" href="{{ route('news.edit', ['news_slug'=> $n->news_slug ]) }}">&#9998;</a>
-                                    <button type="button" @click="openModal('{{ route('news.delete', $n->news_slug) }}', '{{ $n->title }}')">&#128465;</button>
+                                    <button type="button" @click="openModal('{{ route('news.delete', $n->news_slug) }}', @js($n->title))">&#128465;</button>
                                 </td>
                             </tr>
                             @empty
